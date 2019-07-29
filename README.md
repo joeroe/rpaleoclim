@@ -1,3 +1,4 @@
+
 # rpaleoclim: an R interface for `PaleoClim` paleoclimate data
 
 PaleoClim \<<http://paleoclim.org>\> is a database of free, high
@@ -7,8 +8,7 @@ modelling, downscaled from the HadCM3 general circulation model for key
 time periods, at up to 2.5 minute spatial resolution.
 
 This package provides a simple interface for downloading PaleoClim data
-in R, including support for cropping, reprojecting and caching
-downloaded data in raster format.
+in R, with support for caching.
 
 ## Installation
 

@@ -1,7 +1,5 @@
 ---
-output: 
-  md_document:
-      variant: gfm
+output: github_document
 ---
 
 # rpaleoclim: an R interface for `PaleoClim` paleoclimate data
