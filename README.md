@@ -1,5 +1,5 @@
 
-# rpaleoclim: an R interface for `PaleoClim` paleoclimate data
+# rpaleoclim: an R interface for *PaleoClim* paleoclimate data
 
 PaleoClim \<<http://paleoclim.org>\> is a database of free, high
 resolution paleoclimate surfaces covering the whole globe. It includes
@@ -44,4 +44,4 @@ the PaleoClim database:
     global land areas](https://www.nature.com/articles/sdata2018254).
     *Scientific Data* 5, 180254. <doi:10.1038/sdata.2018.254>
 
-And the original papers for the individual climatologies used.
+As well as the original papers for the individual climatologies used.
