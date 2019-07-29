@@ -1,0 +1,25 @@
+Package: rpaleoclim
+Title: R Interface for PaleoClim Paleoclimate Data
+Version: 0.9
+Authors@R:
+    person(given = "Joe",
+           family = "Roe",
+           role = c("aut", "cre"),
+           email = "jwg983@hum.ku.dk")
+Description: 
+    PaleoClim <http://paleoclim.org> is a database of free, high resolution 
+  paleoclimate surfaces covering the whole globe. It includes the standard
+  bioclimatic variables commonly used in ecological modelling, downscaled from
+  the HadCM3 general circulation model for key time periods, at up to 2.5 minute
+  spatial resolution.
+    This package provides a simple interface for downloading PaleoClim data in R,
+  with support for caching.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Imports: 
+    utils,
+    fs,
+    raster
