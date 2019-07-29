@@ -1,17 +1,22 @@
-#' Get data from PaleoClim
+#' Retrieve data from PaleoClim
 #'
-#' Retrieves data from PaleoClim (<http://paleoclim.org>) and loads it into R
-#' as a `RasterStack` object. By default, downloaded files are cached for the
-#' session to reduce server load. This can be overriden with `skip_cache`.
+#' Downloads data from PaleoClim (<http://paleoclim.org>) and loads it into R
+#' as a `RasterStack` object.
 #'
-#' @param period      Character. Time period code to fetch.
-#' @param resolution  Character. Resolution to fetch.
+#' @param period      Character. Time period to retrieve.
+#' @param resolution  Character. Resolution to retrieve.
+#' @param region      `extent` object or object that can be coerced to `extent`
+#'                    (see [raster::extent()]), describing the region to be
+#'                    retrieved. If `NULL`, defaults to the whole globe.
 #' @param skip_cache  Boolean. If `TRUE`, cached data will be ignored.
 #'
 #' @details
 #'
 #' See <http://paleoclim.org> for details of the datasets and codings.
 #' Data at 30s resolution is only available for 'cur' and 'lgm'.
+#'
+#' By default, downloaded files are cached for the session to reduce server
+#' load. This can be overriden with `skip_cache`.
 #'
 #' @return A `RasterStack` (see [raster::stack()]) object.
 #'
@@ -26,6 +31,7 @@
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
+                      region = NULL,
                       skip_cache = FALSE) {
   period <- match.arg(period)
   resolution <- match.arg(resolution)
@@ -41,6 +47,11 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   }
 
   rast <- load_paleoclim(tmpfile)
+
+  if (!is.null(region)) {
+    rast <- raster::crop(rast, region)
+  }
+
   return(rast)
 }
 
@@ -94,7 +105,7 @@ construct_paleoclim_url <- function(period, resolution) {
 #' @return `RasterStack` object (see [raster::stack()]).
 #' @export
 load_paleoclim <- function(file) {
-  tmpdir <- fs::file_temp("dir")
+  tmpdir <- fs::file_temp("paleoclim_")
   utils::unzip(file, exdir = tmpdir)
 
   tifs <- fs::dir_ls(tmpdir, recurse = TRUE, glob = "*.tif")

@@ -1,5 +1,5 @@
 Package: rpaleoclim
-Title: R Interface for PaleoClim Paleoclimate Data
+Title: R Interface for the PaleoClim Paleoclimate Database
 Version: 0.9
 Authors@R:
     person(given = "Joe",
@@ -13,7 +13,7 @@ Description:
   the HadCM3 general circulation model for key time periods, at up to 2.5 minute
   spatial resolution.
     This package provides a simple interface for downloading PaleoClim data in R,
-  with support for caching.
+  with support for spatial queries and caching.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

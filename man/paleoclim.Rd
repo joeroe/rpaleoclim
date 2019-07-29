@@ -2,16 +2,20 @@
 % Please edit documentation in R/paleoclim.R
 \name{paleoclim}
 \alias{paleoclim}
-\title{Get data from PaleoClim}
+\title{Retrieve data from PaleoClim}
 \usage{
 paleoclim(period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis",
   "mpwp", "m2", "cur", "lgm"), resolution = c("10m", "5m", "2_5m",
-  "30s"), skip_cache = FALSE)
+  "30s"), region = NULL, skip_cache = FALSE)
 }
 \arguments{
-\item{period}{Character. Time period code to fetch.}
+\item{period}{Character. Time period to retrieve.}
 
-\item{resolution}{Character. Resolution to fetch.}
+\item{resolution}{Character. Resolution to retrieve.}
+
+\item{region}{\code{extent} object or object that can be coerced to \code{extent}
+(see \code{\link[raster:extent]{raster::extent()}}), describing the region to be
+retrieved. If \code{NULL}, defaults to the whole globe.}
 
 \item{skip_cache}{Boolean. If \code{TRUE}, cached data will be ignored.}
 }
@@ -19,13 +23,15 @@ paleoclim(period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis",
 A \code{RasterStack} (see \code{\link[raster:stack]{raster::stack()}}) object.
 }
 \description{
-Retrieves data from PaleoClim (\url{http://paleoclim.org}) and loads it into R
-as a \code{RasterStack} object. By default, downloaded files are cached for the
-session to reduce server load. This can be overriden with \code{skip_cache}.
+Downloads data from PaleoClim (\url{http://paleoclim.org}) and loads it into R
+as a \code{RasterStack} object.
 }
 \details{
 See \url{http://paleoclim.org} for details of the datasets and codings.
 Data at 30s resolution is only available for 'cur' and 'lgm'.
+
+By default, downloaded files are cached for the session to reduce server
+load. This can be overriden with \code{skip_cache}.
 }
 \examples{
 
