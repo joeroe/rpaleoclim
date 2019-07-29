@@ -13,8 +13,8 @@ in R, with support for caching.
 ## Installation
 
 You can install the development version of rpaleoclim from GitHub using
-the [`remotes`](/r-lib/remotes) or [`devtools`](/r-lib/devtools)
-packages:
+the [`remotes`](https://github.com/r-lib/remotes) or
+[`devtools`](https://github.com/r-lib/devtools) packages:
 
 ``` r
 remotes::install_github("joeroe/rpaleoclim")
