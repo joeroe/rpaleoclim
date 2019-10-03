@@ -24,10 +24,8 @@
 #'
 #' @examples
 #'
-#' library("raster")
-#'
 #' lh_10m <- paleoclim("lh", "10m")
-#' plot(lh_10m)
+#' raster::plot(lh_10m)
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
@@ -60,7 +58,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
 #' @param period      Character. PaleoClim period code.
 #' @param resolution  Character. PaleoClim resolution.
 construct_paleoclim_url <- function(period, resolution) {
-  base_url <- ("http://sdmtoolbox.org/paleoclim/data/")
+  base_url <- ("http://sdmtoolbox.org/paleoclim.org/data/")
 
   if (period %in% c("mpwp", "m2")) {
     subdir <- paste0(period, "/")
