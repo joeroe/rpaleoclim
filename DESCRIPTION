@@ -21,11 +21,12 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
     utils,
-    fs,
-    raster,
     rlang,
-    polite,
-    curl
+    fs,
+    rgdal,
+    raster,
+    curl,
+    polite
 Suggests: 
     mockery,
     testthat (>= 3.0.0)
