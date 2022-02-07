@@ -33,8 +33,8 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                       region = NULL,
                       skip_cache = FALSE,
                       quiet = FALSE) {
-  period <- match.arg(period)
-  resolution <- match.arg(resolution)
+  period <- rlang::arg_match(period)
+  resolution <- rlang::arg_match(resolution)
   if (resolution == "30s" & !period %in% c("cur", "lgm")) {
     rlang::abort("Data at 30s resolution is only available for 'cur' and 'lgm'")
   }
