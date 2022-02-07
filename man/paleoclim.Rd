@@ -10,6 +10,7 @@ paleoclim(
   resolution = c("10m", "5m", "2_5m", "30s"),
   region = NULL,
   skip_cache = FALSE,
+  cache_path = fs::path_temp(),
   quiet = FALSE
 )
 }
@@ -23,6 +24,9 @@ paleoclim(
 retrieved. If \code{NULL}, defaults to the whole globe.}
 
 \item{skip_cache}{Logical. If \code{TRUE}, cached data will be ignored.}
+
+\item{cache_path}{Logical. Path to directory where downloaded files should
+be saved. Defaults to R's temporary directory.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppresses messages and download
 progress information.}
@@ -40,6 +44,8 @@ Data at 30s resolution is only available for 'cur' and 'lgm'.
 
 By default, \code{paleoclim()} will read previously downloaded files in R's
 temporary directory if available. Use \code{skip_cache = TRUE} to override this.
+\code{cache_path} can also be set to another directory. This can be useful if you
+want to reuse downloaded data between sessions.
 }
 \examples{
 

@@ -9,6 +9,8 @@
 #'                    (see [raster::extent()]), describing the region to be
 #'                    retrieved. If `NULL`, defaults to the whole globe.
 #' @param skip_cache  Logical. If `TRUE`, cached data will be ignored.
+#' @param cache_path  Logical. Path to directory where downloaded files should
+#'   be saved. Defaults to R's temporary directory.
 #' @param quiet       Logical. If `TRUE`, suppresses messages and download
 #'   progress information.
 #'
@@ -18,6 +20,8 @@
 #'
 #' By default, `paleoclim()` will read previously downloaded files in R's
 #' temporary directory if available. Use `skip_cache = TRUE` to override this.
+#' `cache_path` can also be set to another directory. This can be useful if you
+#' want to reuse downloaded data between sessions.
 #'
 #' @return A `RasterStack` (see [raster::stack()]) object.
 #'
@@ -32,6 +36,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                       resolution = c("10m", "5m", "2_5m", "30s"),
                       region = NULL,
                       skip_cache = FALSE,
+                      cache_path = fs::path_temp(),
                       quiet = FALSE) {
   period <- rlang::arg_match(period)
   resolution <- rlang::arg_match(resolution)
@@ -40,7 +45,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   }
 
   url <- construct_paleoclim_url(period, resolution)
-  tmpfile <- fs::path_temp(fs::path_file(url))
+  tmpfile <- fs::path(cache_path, fs::path_file(url))
 
   if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
     curl::curl_download(url, tmpfile, quiet = quiet)
