@@ -8,7 +8,9 @@
 #' @param region      `extent` object or object that can be coerced to `extent`
 #'                    (see [raster::extent()]), describing the region to be
 #'                    retrieved. If `NULL`, defaults to the whole globe.
-#' @param skip_cache  Boolean. If `TRUE`, cached data will be ignored.
+#' @param skip_cache  Logical. If `TRUE`, cached data will be ignored.
+#' @param quiet       Logical. If `TRUE`, suppresses messages and download
+#'   progress information.
 #'
 #' @details
 #'
@@ -16,7 +18,7 @@
 #' Data at 30s resolution is only available for 'cur' and 'lgm'.
 #'
 #' By default, downloaded files are cached for the session to reduce server
-#' load. This can be overriden with `skip_cache`.
+#' load. Override this with `skip_cache`.
 #'
 #' @return A `RasterStack` (see [raster::stack()]) object.
 #'
@@ -30,7 +32,8 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
                       region = NULL,
-                      skip_cache = FALSE) {
+                      skip_cache = FALSE,
+                      quiet = FALSE) {
   period <- match.arg(period)
   resolution <- match.arg(resolution)
   if (resolution == "30s" & !period %in% c("cur", "lgm")) {
@@ -41,7 +44,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   tmpfile <- fs::path_temp(fs::path_file(url))
 
   if (!fs::file_exists(tmpfile) | skip_cache) {
-    utils::download.file(url, tmpfile, "auto")
+    curl::curl_download(url, tmpfile, quiet = quiet)
   }
 
   rast <- load_paleoclim(tmpfile)

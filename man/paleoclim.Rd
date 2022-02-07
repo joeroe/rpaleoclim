@@ -4,9 +4,14 @@
 \alias{paleoclim}
 \title{Retrieve data from PaleoClim}
 \usage{
-paleoclim(period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis",
-  "mpwp", "m2", "cur", "lgm"), resolution = c("10m", "5m", "2_5m",
-  "30s"), region = NULL, skip_cache = FALSE)
+paleoclim(
+  period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis", "mpwp", "m2", "cur",
+    "lgm"),
+  resolution = c("10m", "5m", "2_5m", "30s"),
+  region = NULL,
+  skip_cache = FALSE,
+  quiet = FALSE
+)
 }
 \arguments{
 \item{period}{Character. Time period to retrieve.}
@@ -17,7 +22,10 @@ paleoclim(period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis",
 (see \code{\link[raster:extent]{raster::extent()}}), describing the region to be
 retrieved. If \code{NULL}, defaults to the whole globe.}
 
-\item{skip_cache}{Boolean. If \code{TRUE}, cached data will be ignored.}
+\item{skip_cache}{Logical. If \code{TRUE}, cached data will be ignored.}
+
+\item{quiet}{Logical. If \code{TRUE}, suppresses messages and download
+progress information.}
 }
 \value{
 A \code{RasterStack} (see \code{\link[raster:stack]{raster::stack()}}) object.
@@ -31,12 +39,10 @@ See \url{http://paleoclim.org} for details of the datasets and codings.
 Data at 30s resolution is only available for 'cur' and 'lgm'.
 
 By default, downloaded files are cached for the session to reduce server
-load. This can be overriden with \code{skip_cache}.
+load. Override this with \code{skip_cache}.
 }
 \examples{
 
-library("raster")
-
 lh_10m <- paleoclim("lh", "10m")
-plot(lh_10m)
+raster::plot(lh_10m)
 }
