@@ -38,11 +38,11 @@ as a \code{RasterStack} object.
 See \url{http://paleoclim.org} for details of the datasets and codings.
 Data at 30s resolution is only available for 'cur' and 'lgm'.
 
-By default, downloaded files are cached for the session to reduce server
-load. Override this with \code{skip_cache}.
+By default, \code{paleoclim()} will read previously downloaded files in R's
+temporary directory if available. Use \code{skip_cache = TRUE} to override this.
 }
 \examples{
 
-lh_10m <- paleoclim("lh", "10m")
+lh_10m <- paleoclim("lh", "10m", quiet = TRUE)
 raster::plot(lh_10m)
 }

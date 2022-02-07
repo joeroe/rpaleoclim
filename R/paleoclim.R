@@ -13,12 +13,11 @@
 #'   progress information.
 #'
 #' @details
-#'
 #' See <http://paleoclim.org> for details of the datasets and codings.
 #' Data at 30s resolution is only available for 'cur' and 'lgm'.
 #'
-#' By default, downloaded files are cached for the session to reduce server
-#' load. Override this with `skip_cache`.
+#' By default, `paleoclim()` will read previously downloaded files in R's
+#' temporary directory if available. Use `skip_cache = TRUE` to override this.
 #'
 #' @return A `RasterStack` (see [raster::stack()]) object.
 #'
@@ -26,7 +25,7 @@
 #'
 #' @examples
 #'
-#' lh_10m <- paleoclim("lh", "10m")
+#' lh_10m <- paleoclim("lh", "10m", quiet = TRUE)
 #' raster::plot(lh_10m)
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
@@ -37,14 +36,24 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   period <- match.arg(period)
   resolution <- match.arg(resolution)
   if (resolution == "30s" & !period %in% c("cur", "lgm")) {
-    stop("Data at 30s resolution is only available for 'cur' and 'lgm'")
+    rlang::abort("Data at 30s resolution is only available for 'cur' and 'lgm'")
   }
 
   url <- construct_paleoclim_url(period, resolution)
   tmpfile <- fs::path_temp(fs::path_file(url))
 
-  if (!fs::file_exists(tmpfile) | skip_cache) {
+  if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
     curl::curl_download(url, tmpfile, quiet = quiet)
+  }
+  else {
+    if (!isTRUE(quiet)) {
+      rlang::inform(
+        paste0("Reading cached PaleoClim data from ", tmpfile),
+        body = c(
+          i = "Use `skip_cache = TRUE` to force redownload."
+        )
+      )
+    }
   }
 
   rast <- load_paleoclim(tmpfile)

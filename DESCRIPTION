@@ -22,4 +22,5 @@ RoxygenNote: 7.1.2
 Imports: 
     utils,
     fs,
-    raster
+    raster,
+    rlang
