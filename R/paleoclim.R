@@ -29,8 +29,10 @@
 #'
 #' @examples
 #'
+#' \donttest{
 #' lh_10m <- paleoclim("lh", "10m", quiet = TRUE)
 #' raster::plot(lh_10m)
+#' }
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
