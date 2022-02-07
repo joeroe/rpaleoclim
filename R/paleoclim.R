@@ -48,7 +48,14 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   tmpfile <- fs::path(cache_path, fs::path_file(url))
 
   if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
-    curl::curl_download(url, tmpfile, quiet = quiet)
+    polite_download <- polite::politely(
+      curl::curl_download,
+      user_agent = paste0("rpaleoclim ", getOption("HTTPUserAgent")),
+      robots = TRUE,
+      delay = 1,
+      verbose = FALSE
+    )
+    polite_download(url, tmpfile, quiet = quiet)
   }
   else {
     if (!isTRUE(quiet)) {

@@ -23,4 +23,5 @@ Imports:
     utils,
     fs,
     raster,
-    rlang
+    rlang,
+    polite
