@@ -48,14 +48,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   tmpfile <- fs::path(cache_path, fs::path_file(url))
 
   if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
-    polite_download <- polite::politely(
-      curl::curl_download,
-      user_agent = paste0("rpaleoclim ", getOption("HTTPUserAgent")),
-      robots = TRUE,
-      delay = 1,
-      verbose = FALSE
-    )
-    polite_download(url, tmpfile, quiet = quiet)
+    download_paleoclim(url, tmpfile, quiet)
   }
   else {
     if (!isTRUE(quiet)) {
@@ -136,8 +129,38 @@ load_paleoclim <- function(file) {
 
   rast <- raster::stack(tifs)
 
-  # TODO: Only if RasterStack is moved to memory?
-  #fs::dir_delete(tmpdir)
-
   return(rast)
+}
+
+#' Download a file from Paleoclim
+#'
+#' @noRd
+#' @keywords internal
+download_paleoclim <- function(url, tmpfile, quiet) {
+    polite_download <- polite::politely(
+      curl::curl_download,
+      user_agent = paste0("rpaleoclim ", getOption("HTTPUserAgent")),
+      robots = TRUE,
+      delay = 1,
+      verbose = FALSE
+    )
+    polite_download(url, tmpfile, quiet = quiet)
+}
+
+#' Pretend to download a file from Paleoclim
+#'
+#' Used for testing. Copies a small test file to `tmpfile`.
+#'
+#' @noRd
+#' @keywords internal
+mock_download_paleoclim <- function(url, tmpfile, quiet) {
+  if (!isTRUE(quiet)) {
+    rlang::inform(
+      paste0("Pretending to download <", url, "> to ", tmpfile, " ...")
+    )
+  }
+  dummy_file <- system.file("testdata", "LH_v1_10m_cropped.zip",
+                            package = "rpaleoclim",
+                            mustWork = TRUE)
+  fs::file_copy(dummy_file, tmpfile, overwrite = TRUE)
 }
