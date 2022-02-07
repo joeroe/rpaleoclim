@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Codecov test coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim?branch=master)
+[![R-CMD-check](https://github.com/joeroe/rpaleoclim/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/rpaleoclim/actions)
 <!-- badges: end -->
 
 PaleoClim <<http://paleoclim.org>> is a database of free, high resolution paleoclimate surfaces covering the whole globe.
