@@ -131,3 +131,9 @@ test_that('all URLs are constructed correctly', {
   expect_equal(construct_paleoclim_url("lgm", "30s"),
                "http://sdmtoolbox.org/paleoclim.org/data/chelsa_LGM/chelsa_LGM_v1_2B_r30s.zip")
 })
+
+test_that('raster is cropped to desired extent', {
+  ext <- raster::extent(0, 1, 0, 1)
+  rast <- paleoclim("lh", "10m", region = ext, quiet = TRUE)
+  expect_equal(raster::bbox(rast), raster::bbox(ext))
+})
