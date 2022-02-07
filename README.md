@@ -1,4 +1,6 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # rpaleoclim: an R interface for the *PaleoClim* paleoclimate database
 
 PaleoClim \<<http://paleoclim.org>\> is a database of free, high
@@ -30,7 +32,7 @@ lh_10m <- paleoclim("lh", "10m")
 plot(lh_10m)
 ```
 
-![](README_files/figure-gfm/rpaleoclim-demo-1.png)<!-- -->
+<img src="man/figures/README-rpaleoclim-demo-1.png" width="100%" />
 
 ## Citation
 
