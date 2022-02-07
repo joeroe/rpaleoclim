@@ -1,5 +1,5 @@
 
-# rpaleoclim: an R interface for *PaleoClim* paleoclimate data
+# rpaleoclim: an R interface for the *PaleoClim* paleoclimate database
 
 PaleoClim \<<http://paleoclim.org>\> is a database of free, high
 resolution paleoclimate surfaces covering the whole globe. It includes
@@ -8,7 +8,7 @@ modelling, downscaled from the HadCM3 general circulation model for key
 time periods, at up to 2.5 minute spatial resolution.
 
 This package provides a simple interface for downloading PaleoClim data
-in R, with support for caching.
+in R, with support for spatial queries and caching.
 
 ## Installation
 
@@ -39,9 +39,10 @@ authors](http://paleoclim.org/how-to-cite/) when citing PaleoClim data.
 At time of writing, this includes a citation to the paper the describing
 the PaleoClim database:
 
-  - Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood, A.M.,
-    2018. [PaleoClim, high spatial resolution paleoclimate surfaces for
-    global land areas](https://www.nature.com/articles/sdata2018254).
-    *Scientific Data* 5, 180254. <doi:10.1038/sdata.2018.254>
+-   Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood,
+    A.M., 2018. [PaleoClim, high spatial resolution paleoclimate
+    surfaces for global land
+    areas](https://www.nature.com/articles/sdata2018254). *Scientific
+    Data* 5, 180254. <doi:10.1038/sdata.2018.254>
 
 As well as the original papers for the individual climatologies used.
