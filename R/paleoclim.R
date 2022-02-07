@@ -137,14 +137,7 @@ load_paleoclim <- function(file) {
 #' @noRd
 #' @keywords internal
 download_paleoclim <- function(url, tmpfile, quiet) {
-    polite_download <- polite::politely(
-      curl::curl_download,
-      user_agent = paste0("rpaleoclim ", getOption("HTTPUserAgent")),
-      robots = TRUE,
-      delay = 1,
-      verbose = FALSE
-    )
-    polite_download(url, tmpfile, quiet = quiet)
+    curl::curl_download(url, tmpfile, quiet = quiet)
 }
 
 #' Pretend to download a file from Paleoclim
