@@ -3,6 +3,18 @@
 
 # rpaleoclim: an R interface for the *PaleoClim* paleoclimate database
 
+<!-- badges: start -->
+
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rpaleoclim)](https://CRAN.R-project.org/package=rpaleoclim)
+[![R-CMD-check](https://github.com/joeroe/rpaleoclim/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/rpaleoclim/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim?branch=master)
+<!-- badges: end -->
+
 PaleoClim \<<http://paleoclim.org>\> is a database of free, high
 resolution paleoclimate surfaces covering the whole globe. It includes
 the standard bioclimatic variables commonly used in ecological
