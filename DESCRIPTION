@@ -24,7 +24,8 @@ Imports:
     fs,
     raster,
     rlang,
-    polite
+    polite,
+    curl
 Suggests: 
     mockery,
     testthat (>= 3.0.0)
