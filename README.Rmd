@@ -15,6 +15,10 @@ knitr::opts_chunk$set(
 
 # rpaleoclim: an R interface for the *PaleoClim* paleoclimate database
 
+<!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim?branch=master)
+<!-- badges: end -->
+
 PaleoClim <<http://paleoclim.org>> is a database of free, high resolution paleoclimate surfaces covering the whole globe.
 It includes the standard bioclimatic variables commonly used in ecological modelling, downscaled from the HadCM3 general circulation model for key time periods, at up to 2.5 minute spatial resolution.
 
