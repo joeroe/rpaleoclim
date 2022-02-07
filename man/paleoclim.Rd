@@ -49,6 +49,8 @@ want to reuse downloaded data between sessions.
 }
 \examples{
 
+\donttest{
 lh_10m <- paleoclim("lh", "10m", quiet = TRUE)
 raster::plot(lh_10m)
+}
 }
