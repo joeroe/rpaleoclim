@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rpaleoclim: an R interface for the *PaleoClim* paleoclimate database
+# rpaleoclim: an R interface for *PaleoClim* paleoclimate data
 
 <!-- badges: start -->
 
@@ -15,11 +15,11 @@ status](https://www.r-pkg.org/badges/version/rpaleoclim)](https://CRAN.R-project
 coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim?branch=master)
 <!-- badges: end -->
 
-PaleoClim \<<http://paleoclim.org>\> is a database of free, high
-resolution paleoclimate surfaces covering the whole globe. It includes
-the standard bioclimatic variables commonly used in ecological
-modelling, downscaled from the HadCM3 general circulation model for key
-time periods, at up to 2.5 minute spatial resolution.
+[PaleoClim](http://paleoclim.org) is a set of free, high resolution
+paleoclimate surfaces covering the whole globe. It includes the standard
+bioclimatic variables commonly used in ecological modelling, downscaled
+from the HadCM3 general circulation model for key time periods, at up to
+2.5 minute spatial resolution.
 
 This package provides a simple interface for downloading PaleoClim data
 in R, with support for spatial queries and caching.
@@ -36,15 +36,37 @@ remotes::install_github("joeroe/rpaleoclim")
 
 ## Usage
 
+The package includes two functions, `paleoclim()` and
+`load_paleoclim()`. `paleoclim()` downloads data from PaleoClim with the
+desired period and resolution and reads it into R as a
+[raster](https://rspatial.org/raster/) object.
+
 ``` r
 library("rpaleoclim")
 library("raster")
 
-lh_10m <- paleoclim("lh", "10m")
-plot(lh_10m)
+paleoclim("lh", "10m") |>
+  plot()
 ```
 
 <img src="man/figures/README-rpaleoclim-demo-1.png" width="100%" />
+
+`paleoclim()` can also crop the output raster to a desired region:
+
+``` r
+europe <- c(-15, 45, 30, 90)
+
+paleoclim("lh", "10m", region = europe) |>
+  plot()
+```
+
+<img src="man/figures/README-paleoclim-crop-demo-1.png" width="100%" />
+
+By default, files from PaleoClim are cached in a local temporary
+directory to avoid repeated download of the same data.
+
+`load_paleoclim()` reads local PaleoClim files (in `.zip` format) in the
+same way.
 
 ## Citation
 
