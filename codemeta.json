@@ -1,0 +1,448 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "rpaleoclim",
+  "description": " PaleoClim <http://paleoclim.org> is a database of free, high resolution paleoclimate surfaces covering the whole globe. It includes the standard bioclimatic variables commonly used in ecological modelling, downscaled from the HadCM3 general circulation model for key time periods, at up to 2.5 minute spatial resolution. This package provides a simple interface for downloading PaleoClim data in R, with support for spatial queries and caching.",
+  "name": "rpaleoclim: R Interface for the PaleoClim Paleoclimate Database",
+  "codeRepository": "https://github.com/joeroe/rpaleoclim",
+  "issueTracker": "https://github.com/joeroe/rpaleoclim/issues",
+  "license": "https://spdx.org/licenses/MIT",
+  "version": "0.9",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Joe",
+      "familyName": "Roe",
+      "email": "joe@joeroe.io"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Joe",
+      "familyName": "Roe",
+      "email": "joe@joeroe.io"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "mockery",
+      "name": "mockery",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=mockery"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "utils",
+      "name": "utils"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "rlang",
+      "name": "rlang",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rlang"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "fs",
+      "name": "fs",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=fs"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
+      "identifier": "rgdal",
+      "name": "rgdal",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rgdal"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "raster",
+      "name": "raster",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=raster"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "curl",
+      "name": "curl",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=curl"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "427.352KB",
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2018",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Brown",
+          "familyName": "Jason L"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Hill",
+          "familyName": "Daniel J"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Dolan",
+          "familyName": "Aisling M"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Carnaval",
+          "familyName": "Ana C"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Haywood",
+          "familyName": "Alan M"
+        }
+      ],
+      "name": "PaleoClim, high spatial resolution paleoclimate surfaces for global land areas",
+      "identifier": "10.1038/sdata.2018.254",
+      "url": "https://www.nature.com/articles/sdata2018254",
+      "pagination": "180254",
+      "@id": "https://doi.org/10.1038/sdata.2018.254",
+      "sameAs": "https://doi.org/10.1038/sdata.2018.254",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2018",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "5",
+          "name": "Scientific Data"
+        }
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2017",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Fordham",
+          "familyName": "Damien A"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Saltré",
+          "familyName": "Frédérik"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Haythorne",
+          "familyName": "Sean"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Wigley",
+          "familyName": "Tom M L"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Otto-Bliesner",
+          "familyName": "Bette L"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Chan",
+          "familyName": "Ka Ching"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Brook",
+          "familyName": "Barry W"
+        }
+      ],
+      "name": "PaleoView: a tool for generating continuous climate projections spanning the last 21 000 years at regional and global scales",
+      "identifier": "10.1111/ecog.03031",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.03031",
+      "pagination": "1348-1358",
+      "@id": "https://doi.org/10.1111/ecog.03031",
+      "sameAs": "https://doi.org/10.1111/ecog.03031",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2017",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "40",
+          "name": "Ecography"
+        }
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2006",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Otto-Bliesner",
+          "familyName": "Bette L."
+        },
+        {
+          "@type": "Person",
+          "givenName": "Marshall",
+          "familyName": "Shawn J."
+        },
+        {
+          "@type": "Person",
+          "givenName": "Overpeck",
+          "familyName": "Jonathan T."
+        },
+        {
+          "@type": "Person",
+          "givenName": "Miller",
+          "familyName": "Gifford H."
+        },
+        {
+          "@type": "Person",
+          "givenName": "Hu",
+          "familyName": "Aixue"
+        },
+        {
+          "@type": "Person",
+          "givenName": ["CAPE", "Last", "Interglacial", "Project"],
+          "familyName": "members"
+        }
+      ],
+      "name": "Simulating Arctic Climate Warmth and Icefield Retreat in the Last Interglaciation",
+      "identifier": "10.1126/science.1120808",
+      "url": "https://www.science.org/doi/10.1126/science.1120808",
+      "pagination": "1751-1753",
+      "@id": "https://doi.org/10.1126/science.1120808",
+      "sameAs": "https://doi.org/10.1126/science.1120808",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2006",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "311",
+          "name": "Science"
+        }
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2015",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Hill",
+          "familyName": "Daniel J"
+        }
+      ],
+      "name": "The non-analogue nature of Pliocene temperature gradients ",
+      "identifier": "10.1016/j.epsl.2015.05.044",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0012821X15003428",
+      "pagination": "232-241",
+      "@id": "https://doi.org/10.1016/j.epsl.2015.05.044",
+      "sameAs": "https://doi.org/10.1016/j.epsl.2015.05.044",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2015",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "425",
+          "name": "Earth and Planetary Science Letters"
+        }
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2015",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Dolan",
+          "familyName": "Aisling M"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Haywood",
+          "familyName": "Alan M"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Hunter",
+          "familyName": "Stephen J"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Tindall",
+          "familyName": "Julia C"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Dowsett",
+          "familyName": "Harry J"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Hill",
+          "familyName": "Daniel J"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Pickering",
+          "familyName": "Steven J"
+        }
+      ],
+      "name": "Modelling the enigmatic Late Pliocene Glacial Event — Marine Isotope Stage M2",
+      "identifier": "10.1016/j.gloplacha.2015.02.001",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0921818115000399",
+      "pagination": "47-60",
+      "@id": "https://doi.org/10.1016/j.gloplacha.2015.02.001",
+      "sameAs": "https://doi.org/10.1016/j.gloplacha.2015.02.001",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2015",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "128",
+          "name": "Global and Planetary Change"
+        }
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2017",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Karger",
+          "familyName": "Dirk Nikolaus"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Conrad",
+          "familyName": "Olaf"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Böhner",
+          "familyName": "Jürgen"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Kawohl",
+          "familyName": "Tobias"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Kreft",
+          "familyName": "Holger"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Soria-Auza",
+          "familyName": "Rodrigo Wilber"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Zimmermann",
+          "familyName": "Niklaus E"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Linder",
+          "familyName": "H Peter"
+        },
+        {
+          "@type": "Person",
+          "givenName": "kessler",
+          "familyName": "Michael"
+        }
+      ],
+      "name": "Climatologies at high resolution for the earth’s land surface areas",
+      "identifier": "10.1038/sdata.2017.122",
+      "url": "https://www.nature.com/articles/sdata2017122",
+      "pagination": "170122",
+      "@id": "https://doi.org/10.1038/sdata.2017.122",
+      "sameAs": "https://doi.org/10.1038/sdata.2017.122",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2017",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "4",
+          "name": "Scientific Data"
+        }
+      }
+    }
+  ],
+  "readme": "https://github.com/joeroe/rpaleoclim/blob/master/README.md",
+  "contIntegration": ["https://github.com/joeroe/rpaleoclim/actions", "https://app.codecov.io/gh/joeroe/rpaleoclim?branch=master"],
+  "developmentStatus": "https://www.repostatus.org/#wip",
+  "keywords": ["rstats", "r-package", "paleoclimate"]
+}
