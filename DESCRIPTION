@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Joe",
            family = "Roe",
            role = c("aut", "cre"),
-           email = "jwg983@hum.ku.dk")
+           email = "joe@joeroe.io")
 Description: 
     PaleoClim <http://paleoclim.org> is a database of free, high resolution 
   paleoclimate surfaces covering the whole globe. It includes the standard
@@ -15,6 +15,8 @@ Description:
     This package provides a simple interface for downloading PaleoClim data in R,
   with support for spatial queries and caching.
 License: MIT + file LICENSE
+URL: https://github.com/joeroe/rpaleoclim
+BugReports: https://github.com/joeroe/rpaleoclim/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
