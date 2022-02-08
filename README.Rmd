@@ -68,4 +68,6 @@ At time of writing, this includes a citation to the paper the describing the Pal
 
 * Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood, A.M., 2018. [PaleoClim, high spatial resolution paleoclimate surfaces for global land areas](https://www.nature.com/articles/sdata2018254). *Scientific Data* 5, 180254. doi:10.1038/sdata.2018.254
 
-As well as the original papers for the individual climatologies used.
+As well as the original papers for the individual original datasets used.
+
+Use `citation("paleoclim")` for more details and the references in BibTeX format.

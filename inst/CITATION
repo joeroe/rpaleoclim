@@ -1,0 +1,126 @@
+citHeader("Please cite both PaleoClim and original datasets used.")
+
+citEntry(
+  header   = "PaleoClim and dataset 'mis19':",
+  entry    = "Article",
+  title    = "PaleoClim, high spatial resolution paleoclimate surfaces for global land areas",
+  author   = c(
+    person("Brown", "Jason L"),
+    person("Hill", "Daniel J"),
+    person("Dolan", "Aisling M"),
+    person("Carnaval", "Ana C"),
+    person("Haywood", "Alan M")
+  ),
+  journal  = "Scientific Data",
+  year     = 2018,
+  volume   = 5,
+  pages    = 180254,
+  url      = "https://www.nature.com/articles/sdata2018254",
+  doi      = "10.1038/sdata.2018.254",
+  textVersion = 'Brown Jason L, et al. "PaleoClim, high spatial resolution paleoclimate surfaces for global land areas". Scientific Data 5. (2018): 180254.'
+)
+
+citEntry(
+  header   = "Datasets 'lh', 'mh', 'eh', 'yds', 'ba' and 'hs1':",
+  entry    = "Article",
+  title    = "PaleoView: a tool for generating continuous climate projections spanning the last 21 000 years at regional and global scales",
+  author   = c(
+    person("Fordham", "Damien A"),
+    person("Saltré", "Frédérik"),
+    person("Haythorne", "Sean"),
+    person("Wigley", "Tom M L"),
+    person("Otto-Bliesner", "Bette L"),
+    person("Chan", "Ka Ching"),
+    person("Brook", "Barry W")
+  ),
+  journal  = "Ecography",
+  year     = 2017,
+  volume   = 40,
+  issue    = 11,
+  pages    = "1348-1358",
+  url      = "https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.03031",
+  doi      = "10.1111/ecog.03031",
+  textVersion = 'Fordham Damien A, et al. "PaleoView: a tool for generating continuous climate projections spanning the last 21 000 years at regional and global scales". Ecography 40. (2017): 1348-1358.'
+)
+
+citEntry(
+  header   = "Dataset 'lig':",
+  entry    = "Article",
+  title    = "Simulating Arctic Climate Warmth and Icefield Retreat in the Last Interglaciation",
+  author   = c(
+    person("Otto-Bliesner", "Bette L."),
+    person("Marshall", "Shawn J."),
+    person("Overpeck", "Jonathan T."),
+    person("Miller", "Gifford H."),
+    person("Hu", "Aixue"),
+    as.person("CAPE Last Interglacial Project members")
+  ),
+  journal  = "Science",
+  year     = 2006,
+  volume   = 311,
+  issue    = 5768,
+  pages    = "1751-1753",
+  url      = "https://www.science.org/doi/10.1126/science.1120808",
+  doi      = "10.1126/science.1120808",
+  textVersion = 'Otto-Bliesner Bette L., et al. "Simulating Arctic Climate Warmth and Icefield Retreat in the Last Interglaciation". Science 311. (2006): 1751-1753.'
+)
+
+citEntry(
+  header   = "Dataset 'mpwp':",
+  entry    = "Article",
+  title    = "The non-analogue nature of Pliocene temperature gradients ",
+  author   = person("Hill", "Daniel J"),
+  journal  = "Earth and Planetary Science Letters",
+  year     = 2015,
+  volume   = 425,
+  pages    = "232-241",
+  url      = "https://www.sciencedirect.com/science/article/pii/S0012821X15003428",
+  doi      = "10.1016/j.epsl.2015.05.044",
+  textVersion = 'Hill Daniel J. "The non-analogue nature of Pliocene temperature gradients ". Earth and Planetary Science Letters 425. (2015): 232-241.'
+)
+
+citEntry(
+  header   = "Dataset 'm2':",
+  entry    = "Article",
+  title    = "Modelling the enigmatic Late Pliocene Glacial Event — Marine Isotope Stage M2",
+  author   = c(
+    person("Dolan", "Aisling M"),
+    person("Haywood", "Alan M"),
+    person("Hunter", "Stephen J"),
+    person("Tindall", "Julia C"),
+    person("Dowsett", "Harry J"),
+    person("Hill", "Daniel J"),
+    person("Pickering", "Steven J")
+  ),
+  journal  = "Global and Planetary Change",
+  year     = 2015,
+  volume   = 128,
+  pages    = "47-60",
+  url      = "https://www.sciencedirect.com/science/article/pii/S0921818115000399",
+  doi      = "10.1016/j.gloplacha.2015.02.001",
+  textVersion = 'Dolan Aisling M, et al. "Modelling the enigmatic Late Pliocene Glacial Event — Marine Isotope Stage M2". Global and Planetary Change 128. (2015): 47-60.'
+)
+
+citEntry(
+  header   = "Dataset 'cur' and 'lgm' (CHELSA):",
+  entry    = "Article",
+  title    = "Climatologies at high resolution for the earth’s land surface areas",
+  author   = c(
+    person("Karger", "Dirk Nikolaus"),
+    person("Conrad", "Olaf"),
+    person("Böhner", "Jürgen"),
+    person("Kawohl", "Tobias"),
+    person("Kreft", "Holger"),
+    person("Soria-Auza", "Rodrigo Wilber"),
+    person("Zimmermann", "Niklaus E"),
+    person("Linder", "H Peter"),
+    person("kessler", "Michael")
+  ),
+  journal  = "Scientific Data",
+  year     = 2017,
+  volume   = 4,
+  pages    = "170122",
+  url      = "https://www.nature.com/articles/sdata2017122",
+  doi      = "10.1038/sdata.2017.122",
+  textVersion = 'Karger Dirk Nikolaus, et al. "Climatologies at high resolution for the earth’s land surface areas". Scientific Data 4. (2017): 170122.'
+)

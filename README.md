@@ -81,4 +81,8 @@ the PaleoClim database:
     areas](https://www.nature.com/articles/sdata2018254). *Scientific
     Data* 5, 180254. <doi:10.1038/sdata.2018.254>
 
-As well as the original papers for the individual climatologies used.
+As well as the original papers for the individual original datasets
+used.
+
+Use `citation("paleoclim")` for more details and the references in
+BibTeX format.
