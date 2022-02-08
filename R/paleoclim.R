@@ -69,6 +69,9 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
 #'
 #' @param period      Character. PaleoClim period code.
 #' @param resolution  Character. PaleoClim resolution.
+#'
+#' @noRd
+#' @keywords internal
 construct_paleoclim_url <- function(period, resolution) {
   base_url <- ("http://sdmtoolbox.org/paleoclim.org/data/")
 
