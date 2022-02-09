@@ -9,6 +9,7 @@ paleoclim(
     "lgm"),
   resolution = c("10m", "5m", "2_5m", "30s"),
   region = NULL,
+  as = c("terra", "raster"),
   skip_cache = FALSE,
   cache_path = fs::path_temp(),
   quiet = FALSE
@@ -19,9 +20,16 @@ paleoclim(
 
 \item{resolution}{Character. Resolution to retrieve.}
 
-\item{region}{\code{extent} object or object that can be coerced to \code{extent}
-(see \code{\link[raster:extent]{raster::extent()}}), describing the region to be
-retrieved. If \code{NULL}, defaults to the whole globe.}
+\item{region}{\code{SpatExtent} object or object that can be coerced to
+\code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}), describing the
+region to be retrieved. If \code{NULL}, defaults to the whole
+globe.}
+
+\item{as}{Character. \code{as = "raster"} returns a \code{RasterStack} object
+(see \code{\link[raster:stack]{raster::stack()}}) instead of the default raster from
+the \code{terra} package. It is provided for backwards
+compatibility and will be removed in future versions.
+Requires the \code{raster} package.}
 
 \item{skip_cache}{Logical. If \code{TRUE}, cached data will be ignored.}
 
@@ -32,11 +40,12 @@ be saved. Defaults to R's temporary directory.}
 progress information.}
 }
 \value{
-A \code{RasterStack} (see \code{\link[raster:stack]{raster::stack()}}) object.
+\code{SpatRaster} object (see \code{\link[terra:rast]{terra::rast()}}) with each bioclimatic variable
+as a separate named layer.
 }
 \description{
 Downloads data from PaleoClim (\url{http://paleoclim.org}) and loads it into R
-as a \code{RasterStack} object.
+as a \code{SpatRaster} object.
 }
 \details{
 See \url{http://paleoclim.org} for details of the datasets and codings.
