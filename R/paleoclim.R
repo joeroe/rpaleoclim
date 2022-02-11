@@ -26,6 +26,11 @@
 #' @return A `RasterStack` (see [raster::stack()]) object.
 #'
 #' @export
+#'
+#' @examples
+#' \donttest{
+#' paleoclim("lh", "10m")
+#' }
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
