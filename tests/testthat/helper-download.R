@@ -4,7 +4,7 @@
 #'
 #' @noRd
 #' @keywords internal
-mock_download <- function(url, tmpfile, quiet) {
+mock_download <- function(url, tmpfile, quiet, handle) {
   if (!isTRUE(quiet)) {
     rlang::inform(
       paste0("Pretending to download <", url, "> to ", tmpfile, " ...")

@@ -133,6 +133,7 @@ test_that('all URLs are constructed correctly', {
 })
 
 test_that('raster is cropped to desired extent', {
+  mockery::stub(paleoclim, "curl::curl_download", mock_download)
   ext <- raster::extent(0, 1, 0, 1)
   rast <- paleoclim("lh", "10m", region = ext, quiet = TRUE)
   expect_equal(raster::bbox(rast), raster::bbox(ext))
