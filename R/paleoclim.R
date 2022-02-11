@@ -52,7 +52,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
       url,
       tmpfile,
       quiet = quiet,
-      handle = curl::new_handle(timeout = getOption("timeout"))
+      handle = curl::new_handle(timeout = max(3600, getOption("timeout")))
     )
   }
   else {
