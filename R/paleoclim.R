@@ -121,7 +121,13 @@ construct_paleoclim_url <- function(period, resolution) {
 #' @param file Character. Path to a *.zip file downloaded from PaleoClim.
 #'
 #' @return `RasterStack` object (see [raster::stack()]).
+#'
 #' @export
+#'
+#' @examples
+#' file <- system.file("testdata", "LH_v1_10m_cropped.zip",
+#'                     package = "rpaleoclim")
+#' load_paleoclim(file)
 load_paleoclim <- function(file) {
   tmpdir <- fs::file_temp("paleoclim_")
   utils::unzip(file, exdir = tmpdir)
