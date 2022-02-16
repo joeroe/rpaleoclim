@@ -22,14 +22,15 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
-    utils,
-    rlang,
+    curl,
     fs,
-    rgdal,
-    raster,
-    curl
+    rlang,
+    terra,
+    utils
 Suggests: 
     covr,
     mockery,
+    raster,
+    rgdal,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

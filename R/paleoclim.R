@@ -1,13 +1,19 @@
 #' Retrieve data from PaleoClim
 #'
 #' Downloads data from PaleoClim (<http://paleoclim.org>) and loads it into R
-#' as a `RasterStack` object.
+#' as a `SpatRaster` object.
 #'
 #' @param period      Character. Time period to retrieve.
 #' @param resolution  Character. Resolution to retrieve.
-#' @param region      `extent` object or object that can be coerced to `extent`
-#'                    (see [raster::extent()]), describing the region to be
-#'                    retrieved. If `NULL`, defaults to the whole globe.
+#' @param region      `SpatExtent` object or object that can be coerced to
+#'                    `SpatExtent` (see [terra::ext()]), describing the
+#'                    region to be retrieved. If `NULL`, defaults to the whole
+#'                    globe.
+#' @param as          Character. `as = "raster"` returns a `RasterStack` object
+#'                    (see [raster::stack()]) instead of the default raster from
+#'                    the `terra` package. It is provided for backwards
+#'                    compatibility and will be removed in future versions.
+#'                    Requires the `raster` and `rgdal` packages.
 #' @param skip_cache  Logical. If `TRUE`, cached data will be ignored.
 #' @param cache_path  Logical. Path to directory where downloaded files should
 #'   be saved. Defaults to R's temporary directory.
@@ -23,7 +29,9 @@
 #' `cache_path` can also be set to another directory. This can be useful if you
 #' want to reuse downloaded data between sessions.
 #'
-#' @return A `RasterStack` (see [raster::stack()]) object.
+#' @return
+#' `SpatRaster` object (see [terra::rast()]) with each bioclimatic variable
+#' as a separate named layer.
 #'
 #' @export
 #'
@@ -35,11 +43,14 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
                       region = NULL,
+                      as = c("terra", "raster"),
                       skip_cache = FALSE,
                       cache_path = fs::path_temp(),
                       quiet = FALSE) {
   period <- rlang::arg_match(period)
   resolution <- rlang::arg_match(resolution)
+  as <- rlang::arg_match(as)
+
   if (resolution == "30s" & !period %in% c("cur", "lgm")) {
     rlang::abort("Data at 30s resolution is only available for 'cur' and 'lgm'")
   }
@@ -67,13 +78,13 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
     }
   }
 
-  rast <- load_paleoclim(tmpfile)
+  raster <- load_paleoclim(tmpfile, as)
 
   if (!is.null(region)) {
-    rast <- raster::crop(rast, region)
+    raster <- terra::crop(raster, region)
   }
 
-  return(rast)
+  return(raster)
 }
 
 #' Construct PaleoClim URL
@@ -122,9 +133,14 @@ construct_paleoclim_url <- function(period, resolution) {
 
 #' Load data from PaleoClim
 #'
-#' Loads a PaleoClim data file (`.zip` format) into R as a `RasterStack` object.
+#' Loads a PaleoClim data file (`.zip` format) into R as a `SpatRaster`.
 #'
 #' @param file Character. Path to a *.zip file downloaded from PaleoClim.
+#' @param as          Character. `as = "raster"` returns a `RasterStack` object
+#'                    (see [raster::stack()]) instead of the default raster from
+#'                    the `terra` package. It is provided for backwards
+#'                    compatibility and will be removed in future versions.
+#'                    Requires the `raster` and `rgdal` packages.
 #'
 #' @return `RasterStack` object (see [raster::stack()]).
 #'
@@ -134,15 +150,38 @@ construct_paleoclim_url <- function(period, resolution) {
 #' file <- system.file("testdata", "LH_v1_10m_cropped.zip",
 #'                     package = "rpaleoclim")
 #' load_paleoclim(file)
-load_paleoclim <- function(file) {
+load_paleoclim <- function(file, as = c("terra", "raster")) {
+  as <- rlang::arg_match(as)
+
   tmpdir <- fs::file_temp("paleoclim_")
   utils::unzip(file, exdir = tmpdir)
 
   tifs <- fs::dir_ls(tmpdir, recurse = TRUE, glob = "*.tif")
   names(tifs) <- fs::path_ext_remove(fs::path_file(tifs))
-  tifs <- as.list(tifs)
 
-  rast <- raster::stack(tifs)
+  raster <- terra::rast(tifs)
 
-  return(rast)
+  if (as == "raster") {
+    if (!requireNamespace("raster", quietly = TRUE) ||
+        !requireNamespace("rgdal", quietly = TRUE)) {
+      rlang::abort(
+        '`as = "raster"` requires packages `raster` and `rgdal`'
+      )
+    }
+
+    rlang::warn(
+      '`as = "raster"` is deprecated and will be removed in future versions of rpaleoclim',
+      "rpaleoclim_raster_deprecation",
+      .frequency = "once",
+      .frequency_id = "rpaleoclim_raster_deprecation"
+    )
+
+    raster |>
+      as.list() |>
+      lapply(raster::raster) |>
+      raster::stack() ->
+      raster
+  }
+
+  return(raster)
 }

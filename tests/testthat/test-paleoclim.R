@@ -1,12 +1,12 @@
 test_that('paleoclim files can be read as rasters', {
   expect_error(pc <- load_paleoclim(testfile), NA)
-  expect_s4_class(pc, "Raster")
+  expect_s4_class(pc, "SpatRaster")
 })
 
 test_that('minimal paleoclim() returns a raster without error', {
   mockery::stub(paleoclim, "curl::curl_download", mock_download)
   expect_error(pc <- paleoclim("lh", "10m", quiet = TRUE), NA)
-  expect_s4_class(pc, "Raster")
+  expect_s4_class(pc, "SpatRaster")
 })
 
 test_that('paleoclim() shows error on invalid parameters', {
@@ -133,8 +133,23 @@ test_that('all URLs are constructed correctly', {
 })
 
 test_that('raster is cropped to desired extent', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  ext <- raster::extent(0, 1, 0, 1)
-  rast <- paleoclim("lh", "10m", region = ext, quiet = TRUE)
-  expect_equal(raster::bbox(rast), raster::bbox(ext))
+  region <- terra::ext(0, 1, 0, 1)
+  raster <- paleoclim("lh", "10m", region = region, quiet = TRUE)
+
+  # terra crops to the nearest gridline, so allow a tolerance of one unit of
+  # resolution
+  expect_equal(as.vector(terra::ext(raster)),
+               as.vector(region),
+               tolerance = 1 / 6)
+})
+
+test_that('we are backwards compatible with raster', {
+  # Can return as RasterStack
+  # TODO: Remove in future version
+  expect_warning(x <- paleoclim(as = "raster", quiet = TRUE),
+                 class = "rpaleoclim_raster_deprecation")
+  expect_s4_class(x, "RasterStack")
+
+  # Can specify region as extent
+  expect_error(paleoclim(region = raster::extent(0, 1, 0, 1), quiet = TRUE), NA)
 })
