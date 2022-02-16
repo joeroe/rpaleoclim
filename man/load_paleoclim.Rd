@@ -22,3 +22,8 @@ as a separate named layer.
 \description{
 Loads a PaleoClim data file (\code{.zip} format) into R as a \code{SpatRaster}.
 }
+\examples{
+file <- system.file("testdata", "LH_v1_10m_cropped.zip",
+                    package = "rpaleoclim")
+load_paleoclim(file)
+}

@@ -56,3 +56,8 @@ temporary directory if available. Use \code{skip_cache = TRUE} to override this.
 \code{cache_path} can also be set to another directory. This can be useful if you
 want to reuse downloaded data between sessions.
 }
+\examples{
+\dontrun{
+paleoclim("lh", "10m")
+}
+}

@@ -34,6 +34,11 @@
 #' as a separate named layer.
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' paleoclim("lh", "10m")
+#' }
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),
@@ -54,7 +59,13 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   tmpfile <- fs::path(cache_path, fs::path_file(url))
 
   if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
-    curl::curl_download(url, tmpfile, quiet = quiet)
+    curl::nslookup("www.sdmtoolbox.org", error = TRUE)
+    curl::curl_download(
+      url,
+      tmpfile,
+      quiet = quiet,
+      handle = curl::new_handle(timeout = max(3600, getOption("timeout")))
+    )
   }
   else {
     if (!isTRUE(quiet)) {
@@ -80,6 +91,9 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
 #'
 #' @param period      Character. PaleoClim period code.
 #' @param resolution  Character. PaleoClim resolution.
+#'
+#' @noRd
+#' @keywords internal
 construct_paleoclim_url <- function(period, resolution) {
   base_url <- ("http://sdmtoolbox.org/paleoclim.org/data/")
 
@@ -128,11 +142,14 @@ construct_paleoclim_url <- function(period, resolution) {
 #'                    compatibility and will be removed in future versions.
 #'                    Requires the `raster` and `rgdal` packages.
 #'
-#' @return
-#' `SpatRaster` object (see [terra::rast()]) with each bioclimatic variable
-#' as a separate named layer.
+#' @return `RasterStack` object (see [raster::stack()]).
 #'
 #' @export
+#'
+#' @examples
+#' file <- system.file("testdata", "LH_v1_10m_cropped.zip",
+#'                     package = "rpaleoclim")
+#' load_paleoclim(file)
 load_paleoclim <- function(file, as = c("terra", "raster")) {
   as <- rlang::arg_match(as)
 
