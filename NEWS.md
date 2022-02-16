@@ -1,4 +1,4 @@
-# rpaleoclim 0.9.0.9000
+# rpaleoclim (development version)
 
 * Migrated from `terra` to `raster`:
   * `paleoclim()` and `load_paleoclim()` now return a `terra::SpatRaster`
