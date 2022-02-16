@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rpaleoclim: an R interface for *PaleoClim* paleoclimate data
+# rpaleoclim: download paleoclimate data from PaleoClim in R
 
 <!-- badges: start -->
 
@@ -17,13 +17,15 @@ coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)
 <!-- badges: end -->
 
 [PaleoClim](http://paleoclim.org) is a set of free, high resolution
-paleoclimate surfaces covering the whole globe. It includes the standard
-bioclimatic variables commonly used in ecological modelling, downscaled
-from the HadCM3 general circulation model for key time periods, at up to
-2.5 minute spatial resolution.
+paleoclimate surfaces covering the whole globe. It includes data on
+surface temperature, precipitation and the standard bioclimatic
+variables commonly used in ecological modelling, derived from the
+‘HadCM3’ general circulation model and downscaled to a spatial
+resolution of up to 2.5 minutes.
 
-This package provides a simple interface for downloading PaleoClim data
-in R, with support for spatial queries and caching.
+This package provides a simple interface for downloading ‘PaleoClim’
+data in R, with support for caching and filtering retrieved data by
+period, resolution, and geographic extent.
 
 ## Installation
 
