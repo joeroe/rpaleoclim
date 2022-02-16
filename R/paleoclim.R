@@ -28,7 +28,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' paleoclim("lh", "10m")
 #' }
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",

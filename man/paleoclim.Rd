@@ -48,7 +48,7 @@ temporary directory if available. Use \code{skip_cache = TRUE} to override this.
 want to reuse downloaded data between sessions.
 }
 \examples{
-\donttest{
+\dontrun{
 paleoclim("lh", "10m")
 }
 }
