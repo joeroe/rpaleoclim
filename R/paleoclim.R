@@ -48,6 +48,7 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
   tmpfile <- fs::path(cache_path, fs::path_file(url))
 
   if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
+    curl::nslookup("www.sdmtoolbox.org", error = TRUE)
     curl::curl_download(
       url,
       tmpfile,
