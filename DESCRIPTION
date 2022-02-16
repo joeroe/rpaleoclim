@@ -30,7 +30,7 @@ Imports:
 Suggests: 
     covr,
     mockery,
-    raster,
+    raster (>= 3.0-2),
     rgdal,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
