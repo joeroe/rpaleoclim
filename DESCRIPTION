@@ -34,9 +34,12 @@ Imports:
     terra,
     utils
 Suggests: 
+    knitr,
     covr,
     mockery,
     raster (>= 3.0-2),
     rgdal,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    rmarkdown
 Config/testthat/edition: 3
+VignetteBuilder: knitr

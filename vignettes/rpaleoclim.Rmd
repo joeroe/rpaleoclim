@@ -1,0 +1,139 @@
+---
+title: "Introduction to rpaleoclim"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rpaleoclim}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r rmarkdown-options, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+[PaleoClim](http://paleoclim.org) is a set of free, high resolution paleoclimate surfaces covering the whole globe. 
+It includes data on surface temperature, precipitation and the standard bioclimatic variables commonly used in  ecological modelling, derived from the HadCM3 general circulation model and  downscaled to a spatial resolution of up to 2.5 minutes.
+Simulations are available for key time periods from the Late Holocene to mid-Pliocene. 
+Data on current and Last Glacial Maximum climate is derived from [CHELSA](https://chelsa-climate.org/) and reprocessed by PaleoClim to match their format; it is available at up to 30 seconds resolution.
+
+This package provides a simple interface for downloading PaleoClim data in R, with support for caching and filtering retrieved data by period, resolution, and geographic extent.
+
+# Installation
+
+You can install the development version of rpaleoclim from GitHub using the [`remotes`](https://github.com/r-lib/remotes) package:
+
+```{r install-rpaleoclim, eval=FALSE}
+remotes::install_github("joeroe/rpaleoclim")
+```
+
+It depends on `terra`, which in turn requires a recent version of the the system libraries [GDAL](https://gdal.org/) and [PROJ](https://proj.org/).
+These are included in the binary releases of `terra` for Windows and MacOS, but if you build from source (e.g. on Linux) you might need to install them first;
+see the [terra README](https://github.com/rspatial/terra#from-source-code) for instructions for different systems.
+
+# Data available
+
+rpaleoclim provides an R interface to download all the data listed at <http://www.paleoclim.org/> and currently mirrored at <http://www.sdmtoolbox.org>.
+The tables below were last updated 2022-02-16; please refer to the PaleoClim website for the authoritative version.
+
+If you notice a change or update to the PaleoClim data structure that isn't supported by the current version of the package, please report it at: <https://github.com/joeroe/rpaleoclim/issues>.
+
+## Periods
+
+PaleoClim includes climate reconstructions from simulations of the following time intervals, supplemented with two additional datasets from CHELSA:
+
+```{r paleoclim-periods, echo=FALSE}
+knitr::kable(read.csv("paleoclim_periods.csv"))
+```
+
+## Bioclimatic variables
+
+## Other options
+
+The options for `resolution` are:
+
+* `"10m"`: 10 minutes, c. 16 km at 30° N/S
+* `"5m"`: 5 minutes, c. 8 km at 30° N/S
+* `"2_5m"`: 2.5 minutes, c. 4 km at 30° N/S
+* `"30s"`: 30 seconds, c. 1 km at 30° N/S (only available for `"cur"` and `"lgm"`)
+
+## Citations
+
+Please follow the [instructions from the authors](http://paleoclim.org/how-to-cite/) when citing PaleoClim data. 
+At time of writing, this includes a citation to the paper the describing the PaleoClim database:
+
+* Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood, A.M., 2018. [PaleoClim, high spatial resolution paleoclimate surfaces for global land areas](https://www.nature.com/articles/sdata2018254). *Scientific Data* 5, 180254. doi:10.1038/sdata.2018.254
+
+As well as the original papers for the individual original datasets used.
+
+Use `citation("paleoclim")` for more details and the references in BibTeX format.
+
+# Retrieving data
+
+```{r setup}
+library(rpaleoclim)
+library(terra)
+```
+
+Use `paleoclim()` to download paleoclimate data from PaleoClim, specifying the desired time period (see above) and resolution.
+For example, to download data for the Late Holocene (`"lh"`) at 10 min resolution:
+
+```{r eg-paleoclim}
+paleoclim("lh", "10m")
+```
+
+The result is a `SpatRaster` object with up to 19 layers containing reconstructed values of the standard "bioclimatic variables" (see above) for this period.
+Consult the `terra` documentation for information on [working with spatial raster data](https://rspatial.org/spatial-terra/8-rastermanip.html) in R.
+
+By default, `paleoclim()` loads the entire downloaded raster into R, i.e. the whole globe.
+You can conveniently crop it to a specific (rectangular) region of interest with the `region` argument.
+This can be specified with a `SpatExtent` object or anything coercible to one (see `?terra::ext`), which includes most spatial data types, or simply a vector of coordinates (xmin, xmax, ymin, ymax):
+
+```{r eg-paleoclim-crop}
+europe <- c(-15, 45, 30, 90)
+europe_lh <- paleoclim("lh", "10m", region = europe)
+
+plot(europe_lh[["bio_12"]], main = "Late Holocene annual precipitation, Europe")
+```
+
+If you have already downloaded data from PaleoClim and simply want to read it into R, you can do so with `load_paleoclim()`, passing it the path to the `.zip` archive:
+
+```{r eg-load-paleoclim}
+zipfile <- system.file("testdata", "LH_v1_10m_cropped.zip",
+                       package = "rpaleoclim")
+load_paleoclim(zipfile)
+```
+
+# Caching
+
+Note that in the examples above, we only downloaded data from the PaleoClim servers once.
+Repeated calls to `paleoclim()` that ask for the same time period and resolution reuse cached versions of the previously downloaded file.
+By default, these files are stored in R's temporary directory, so that you only download the files once per session.
+The cached files are never modified; subsequent cropping, warping, etc. is either done in-memory or creates new temporary files.
+
+The `cache_path` argument controls the directory that `paleoclim()` downloads files to and tries to read cached data from.
+It can be useful to change this to somewhere within the working directory to reuse the same files between sessions and ensure your analysis can be reproduced in the future, even if the remote PaleoClim data changes or disappears.
+
+`skip_cache = TRUE` will force `paleoclim()` to download files from PaleoClim even if cached data exists in `cache_path` (in which case it will overwrite it).
+
+`quiet = TRUE` suppresses messages about whether the data is being downloaded or read from a cached file.
+
+# Backwards compatibility with `raster`
+
+Since version 0.9.1, rpaleoclim has depended on the [terra](https://rspatial.org/terra/) package for reading and manipulating spatial data.
+Previous versions used [raster](https://rspatial.org/raster/) and `rgdal`.
+To use the old `raster` types, you will need to install the optional dependencies `raster` and `rgdal` (like `terra`, these require GDAL and PROJ system libraries):
+
+```{r install-raster, eval=FALSE}
+install.packages(c("rgdal", "raster"))
+```
+
+Then pass `as = "raster"` to `paleoclim()` or `load_paleoclim()` to return the data as a `RasterStack` object instead of a `SpatRaster`.
+
+```{r eg-raster}
+paleoclim("lh", "10m", as = "raster")
+```
+
+Please note that `raster` support will likely be removed entirely in a future version of `rpaleoclim`.

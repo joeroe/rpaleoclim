@@ -19,13 +19,13 @@ coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)
 [PaleoClim](http://paleoclim.org) is a set of free, high resolution
 paleoclimate surfaces covering the whole globe. It includes data on
 surface temperature, precipitation and the standard bioclimatic
-variables commonly used in ecological modelling, derived from the
-‘HadCM3’ general circulation model and downscaled to a spatial
-resolution of up to 2.5 minutes.
+variables commonly used in ecological modelling, derived from the HadCM3
+general circulation model and downscaled to a spatial resolution of up
+to 2.5 minutes.
 
-This package provides a simple interface for downloading ‘PaleoClim’
-data in R, with support for caching and filtering retrieved data by
-period, resolution, and geographic extent.
+This package provides a simple interface for downloading PaleoClim data
+in R, with support for caching and filtering retrieved data by period,
+resolution, and geographic extent.
 
 ## Installation
 
