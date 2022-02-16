@@ -142,7 +142,9 @@ construct_paleoclim_url <- function(period, resolution) {
 #'                    compatibility and will be removed in future versions.
 #'                    Requires the `raster` and `rgdal` packages.
 #'
-#' @return `RasterStack` object (see [raster::stack()]).
+#' @return
+#' `SpatRaster` object (see [terra::rast()]) with each bioclimatic variable
+#' as a separate named layer.
 #'
 #' @export
 #'
@@ -176,11 +178,8 @@ load_paleoclim <- function(file, as = c("terra", "raster")) {
       .frequency_id = "rpaleoclim_raster_deprecation"
     )
 
-    raster |>
-      as.list() |>
-      lapply(raster::raster) |>
-      raster::stack() ->
-      raster
+    raster <- lapply(as.list(raster), raster::raster)
+    raster <- raster::stack(raster)
   }
 
   return(raster)
