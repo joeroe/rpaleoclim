@@ -22,6 +22,7 @@ test_that('paleoclim() shows error on invalid parameters', {
 
 test_that('cached files are used where appropriate', {
   mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  mockery::stub(paleoclim, "interactive", TRUE)
   # Ensure we use a clean temp directory
   tmp <- fs::path_temp(paste0("test-paleoclim-", as.numeric(Sys.time())))
   fs::dir_create(tmp)
@@ -32,6 +33,7 @@ test_that('cached files are used where appropriate', {
 
 test_that('paleoclim() respects cache_path', {
   mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  mockery::stub(paleoclim, "interactive", TRUE)
   tmp <- fs::path_temp(paste0("test-paleoclim-", as.numeric(Sys.time())))
   fs::dir_create(tmp)
   filename <- fs::path_file(construct_paleoclim_url("lh", "10m"))
@@ -41,6 +43,7 @@ test_that('paleoclim() respects cache_path', {
 
 test_that('cache status messages are controlled by `quiet`', {
   mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  mockery::stub(paleoclim, "interactive", TRUE)
   paleoclim("lh", "10m", skip_cache = TRUE, quiet = TRUE) # Ensure cached
   expect_message(paleoclim("lh", "10m", quiet = FALSE), "cached")
   expect_silent(paleoclim("lh", "10m", quiet = TRUE))
@@ -48,6 +51,7 @@ test_that('cache status messages are controlled by `quiet`', {
 
 test_that('download progress messages are controlled by `quiet`', {
   mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  mockery::stub(paleoclim, "interactive", TRUE)
   expect_message(paleoclim("lh", "10m", skip_cache = TRUE, quiet = FALSE), "download")
   expect_silent(paleoclim("lh", "10m", skip_cache = TRUE, quiet = TRUE))
 })
