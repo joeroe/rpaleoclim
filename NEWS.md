@@ -9,6 +9,7 @@
   * The `region` argument of `paleoclim()` now expects a `terra::ext` instead of
     a `raster::extent`. `extent` is coercible to `ext`, so this shouldn't
     break any existing code.
+* Fixed name of period `"mis19"` (was `"mis"`)
 
 # rpaleoclim 0.9
 

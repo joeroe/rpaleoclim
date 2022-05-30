@@ -5,7 +5,7 @@
 \title{Retrieve data from PaleoClim}
 \usage{
 paleoclim(
-  period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis", "mpwp", "m2", "cur",
+  period = c("lh", "mh", "eh", "yds", "ba", "hs1", "lig", "mis19", "mpwp", "m2", "cur",
     "lgm"),
   resolution = c("10m", "5m", "2_5m", "30s"),
   region = NULL,
