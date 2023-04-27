@@ -147,13 +147,19 @@ test_that('raster is cropped to desired extent', {
                tolerance = 1 / 6)
 })
 
-test_that('we are backwards compatible with raster', {
-  # Can return as RasterStack
-  # TODO: Remove in future version
+test_that('paleoclim(as = "raster") returns a RasterStack', {
   expect_warning(x <- paleoclim(as = "raster", quiet = TRUE),
                  class = "rpaleoclim_raster_deprecation")
   expect_s4_class(x, "RasterStack")
+})
 
-  # Can specify region as extent
+test_that('paleoclim() accepts a raster::extent', {
   expect_error(paleoclim(region = raster::extent(0, 1, 0, 1), quiet = TRUE), NA)
+})
+
+test_that('paleoclim(as = "raster") ')
+
+test_that('error if paleoclim(as = "raster") is used without raster and rgdal installed', {
+  mockery::stub(paleoclim, "requireNamespace", FALSE, depth = 2)
+  expect_error(paleoclim(as = "raster"), class = "rpaleoclim_missing_package")
 })

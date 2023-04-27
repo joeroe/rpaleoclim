@@ -167,7 +167,8 @@ load_paleoclim <- function(file, as = c("terra", "raster")) {
     if (!requireNamespace("raster", quietly = TRUE) ||
         !requireNamespace("rgdal", quietly = TRUE)) {
       rlang::abort(
-        '`as = "raster"` requires packages `raster` and `rgdal`'
+        '`as = "raster"` requires packages `raster` and `rgdal`',
+        class = "rpaleoclim_missing_package"
       )
     }
 
