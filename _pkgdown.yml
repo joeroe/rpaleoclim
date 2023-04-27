@@ -1,0 +1,16 @@
+url: http://joeroe.io/rpaleoclim/
+authors:
+  Joe Roe:
+    href: https://joeroe.io
+template:
+  bootstrap: 5
+  opengraph:
+    twitter:
+      creator: '@joeroe90'
+      card: summary
+reference:
+- title: PaleoClim data
+- contents:
+  - paleoclim
+  - load_paleoclim
+

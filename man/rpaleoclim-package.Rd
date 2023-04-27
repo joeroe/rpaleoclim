@@ -11,6 +11,7 @@
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://rpaleoclim.joeroe.io}
   \item \url{https://github.com/joeroe/rpaleoclim}
   \item Report bugs at \url{https://github.com/joeroe/rpaleoclim/issues}
 }
