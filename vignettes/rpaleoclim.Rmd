@@ -5,7 +5,6 @@ vignette: >
   %\VignetteIndexEntry{Introduction to rpaleoclim}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: references.bib
 ---
 
 ```{r rmarkdown-options, include = FALSE}
