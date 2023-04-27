@@ -18,7 +18,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Joe Roe \email{joe@joeroe.io}
+\strong{Maintainer}: Joe Roe \email{joe@joeroe.io} [copyright holder]
 
 }
 \keyword{internal}

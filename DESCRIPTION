@@ -4,7 +4,7 @@ Version: 0.9.0.9000
 Authors@R:
     person(given = "Joe",
            family = "Roe",
-           role = c("aut", "cre"),
+           role = c("aut", "cre", "cph"),
            email = "joe@joeroe.io")
 Description: 
     'PaleoClim' <http://paleoclim.org> (Brown et al. 2019, 
