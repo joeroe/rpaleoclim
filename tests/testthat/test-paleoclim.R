@@ -148,18 +148,21 @@ test_that('raster is cropped to desired extent', {
 })
 
 test_that('paleoclim(as = "raster") returns a RasterStack', {
-  expect_warning(x <- paleoclim(as = "raster", quiet = TRUE),
+  mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  expect_warning(x <- paleoclim("lh", "10m", as = "raster", quiet = TRUE),
                  class = "rpaleoclim_raster_deprecation")
   expect_s4_class(x, "RasterStack")
 })
 
 test_that('paleoclim() accepts a raster::extent', {
-  expect_error(paleoclim(region = raster::extent(0, 1, 0, 1), quiet = TRUE), NA)
+  mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  extent <- raster::extent(0, 1, 0, 1)
+  expect_error(paleoclim("lh", "10m", region = extent, quiet = TRUE), NA)
 })
 
-test_that('paleoclim(as = "raster") ')
-
-test_that('error if paleoclim(as = "raster") is used without raster and rgdal installed', {
-  mockery::stub(paleoclim, "requireNamespace", FALSE, depth = 2)
-  expect_error(paleoclim(as = "raster"), class = "rpaleoclim_missing_package")
+test_that('error if load_paleoclim(as = "raster") is used without raster/rgdal', {
+  mockery::stub(paleoclim, "curl::curl_download", mock_download)
+  mockery::stub(load_paleoclim, "requireNamespace", FALSE, depth = 2)
+  expect_error(load_paleoclim(testfile, as = "raster"),
+               class = "rpaleoclim_missing_package")
 })
