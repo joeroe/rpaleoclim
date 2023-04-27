@@ -35,10 +35,8 @@
 #'
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && curl::has_internet()
 #' paleoclim("lh", "10m")
-#' }
 paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
                                  "lig", "mis19", "mpwp", "m2", "cur", "lgm"),
                       resolution = c("10m", "5m", "2_5m", "30s"),

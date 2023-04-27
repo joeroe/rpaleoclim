@@ -30,6 +30,7 @@ RoxygenNote: 7.2.2
 Imports: 
     curl,
     fs,
+    httr,
     rlang,
     terra,
     utils

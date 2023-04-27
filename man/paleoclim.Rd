@@ -57,7 +57,7 @@ temporary directory if available. Use \code{skip_cache = TRUE} to override this.
 want to reuse downloaded data between sessions.
 }
 \examples{
-\dontrun{
+\dontshow{if (interactive() && curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 paleoclim("lh", "10m")
-}
+\dontshow{\}) # examplesIf}
 }
