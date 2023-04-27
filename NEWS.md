@@ -1,5 +1,6 @@
 # rpaleoclim (development version)
 
+* Added an introductory vignette
 * Migrated from `terra` to `raster`:
   * `paleoclim()` and `load_paleoclim()` now return a `terra::SpatRaster`
     instead of a `raster::raster`.

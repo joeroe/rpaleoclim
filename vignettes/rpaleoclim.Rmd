@@ -50,6 +50,51 @@ knitr::kable(read.csv("paleoclim_periods.csv"))
 
 ### Bioclimatic variables
 
+PaleoClim uses the 16 standard "bioclimatic variables" with their conventional coding:
+
+```{r biovars, echo=FALSE}
+knitr::kable(data.frame(biovar = paste0("bio_", 1:19),
+       definition = c("Mean annual temperature",
+                      "Mean diurnal range",
+                      "Isothermality",
+                      "Temperature seasonality",
+                      "Maximum temperature of warmest month",
+                      "Minimum temperature of coldest month",
+                      "Annual temperature range",
+                      "Mean temperature of wettest quarter",
+                      "Mean temperature of driest quarter",
+                      "Mean temperature of warmest quarter",
+                      "Mean temperature of coldest quarter",
+                      "Total annual precipitation",
+                      "Precipitation of wettest month",
+                      "Precipitation of driest month",
+                      "Precipitation seasonality",
+                      "Precipitation of wettest quarter",
+                      "Precipitation of driest quarter",
+                      "Precipitation of warmest quarter",
+                      "Precipitation of coldest quarter"),
+       formula = c("",
+                   "",
+                   "(bio2 / bio7) * 100",
+                   "sd(temp) * 100",
+                   "",
+                   "",
+                   "bio5 - bio6",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "")
+))
+```
+
 ### Other options
 
 The options for `resolution` are:
