@@ -1,4 +1,4 @@
-# rpaleoclim (development version)
+# rpaleoclim 1.0.0
 
 * Added an introductory vignette
 * Migrated from `terra` to `raster`:
