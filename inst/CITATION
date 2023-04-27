@@ -1,8 +1,8 @@
 citHeader("Please cite both PaleoClim and original datasets used.")
 
-citEntry(
+bibentry(
   header   = "PaleoClim and dataset 'mis19':",
-  entry    = "Article",
+  bibtype  = "Article",
   title    = "PaleoClim, high spatial resolution paleoclimate surfaces for global land areas",
   author   = c(
     person("Brown", "Jason L"),
@@ -20,9 +20,9 @@ citEntry(
   textVersion = 'Brown Jason L, et al. "PaleoClim, high spatial resolution paleoclimate surfaces for global land areas". Scientific Data 5. (2018): 180254.'
 )
 
-citEntry(
+bibentry(
   header   = "Datasets 'lh', 'mh', 'eh', 'yds', 'ba' and 'hs1':",
-  entry    = "Article",
+  bibtype  = "Article",
   title    = "PaleoView: a tool for generating continuous climate projections spanning the last 21 000 years at regional and global scales",
   author   = c(
     person("Fordham", "Damien A"),
@@ -43,9 +43,9 @@ citEntry(
   textVersion = 'Fordham Damien A, et al. "PaleoView: a tool for generating continuous climate projections spanning the last 21 000 years at regional and global scales". Ecography 40. (2017): 1348-1358.'
 )
 
-citEntry(
+bibentry(
   header   = "Dataset 'lig':",
-  entry    = "Article",
+  bibtype  = "Article",
   title    = "Simulating Arctic Climate Warmth and Icefield Retreat in the Last Interglaciation",
   author   = c(
     person("Otto-Bliesner", "Bette L."),
@@ -65,9 +65,9 @@ citEntry(
   textVersion = 'Otto-Bliesner Bette L., et al. "Simulating Arctic Climate Warmth and Icefield Retreat in the Last Interglaciation". Science 311. (2006): 1751-1753.'
 )
 
-citEntry(
+bibentry(
   header   = "Dataset 'mpwp':",
-  entry    = "Article",
+  bibtype  = "Article",
   title    = "The non-analogue nature of Pliocene temperature gradients ",
   author   = person("Hill", "Daniel J"),
   journal  = "Earth and Planetary Science Letters",
@@ -79,9 +79,9 @@ citEntry(
   textVersion = 'Hill Daniel J. "The non-analogue nature of Pliocene temperature gradients ". Earth and Planetary Science Letters 425. (2015): 232-241.'
 )
 
-citEntry(
+bibentry(
   header   = "Dataset 'm2':",
-  entry    = "Article",
+  bibtype  = "Article",
   title    = "Modelling the enigmatic Late Pliocene Glacial Event — Marine Isotope Stage M2",
   author   = c(
     person("Dolan", "Aisling M"),
@@ -101,9 +101,9 @@ citEntry(
   textVersion = 'Dolan Aisling M, et al. "Modelling the enigmatic Late Pliocene Glacial Event — Marine Isotope Stage M2". Global and Planetary Change 128. (2015): 47-60.'
 )
 
-citEntry(
+bibentry(
   header   = "Dataset 'cur' and 'lgm' (CHELSA):",
-  entry    = "Article",
+  bibtype  = "Article",
   title    = "Climatologies at high resolution for the earth’s land surface areas",
   author   = c(
     person("Karger", "Dirk Nikolaus"),
