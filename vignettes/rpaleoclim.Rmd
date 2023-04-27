@@ -2,7 +2,7 @@
 title: "Introduction to rpaleoclim"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{rpaleoclim}
+  %\VignetteIndexEntry{Introduction to rpaleoclim}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: references.bib
@@ -15,10 +15,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-[PaleoClim](http://paleoclim.org) [@brown2018] is a set of free, high resolution paleoclimate surfaces covering the whole globe.
+[PaleoClim](http://paleoclim.org)^[Brown, J., Hill, D., Dolan, A. et al. PaleoClim, high spatial resolution paleoclimate surfaces for global land areas. *Sci Data* 5, 180254 (2018). <https://doi.org/10.1038/sdata.2018.254>] is a set of free, high resolution paleoclimate surfaces covering the whole globe.
 It includes data on surface temperature, precipitation and the standard bioclimatic variables commonly used in ecological modelling, derived from the HadCM3 general circulation model and downscaled to a spatial resolution of up to 2.5 minutes.
 Simulations are available for key time periods from the Late Holocene to mid-Pliocene.
-Data on current and Last Glacial Maximum climate is derived from [CHELSA](https://chelsa-climate.org/) [@karger2017] and reprocessed by PaleoClim to match their format; it is available at up to 30 seconds resolution.
+Data on current and Last Glacial Maximum climate is derived from [CHELSA](https://chelsa-climate.org/)^[Karger, D., Conrad, O., Böhner, J. et al. Climatologies at high resolution for the earth’s land surface areas. *Sci Data* 4, 170122 (2017). <https://doi.org/10.1038/sdata.2017.122>] and reprocessed by PaleoClim to match their format; it is available at up to 30 seconds resolution.
 
 This package provides a simple interface for downloading PaleoClim data in R, with support for caching and filtering retrieved data by period, resolution, and geographic extent.
 
@@ -183,5 +183,3 @@ At time of writing, this includes a citation to the paper the describing the Pal
 As well as the original papers for the individual original datasets used.
 
 Use `citation("paleoclim")` for more details and the references in BibTeX format.
-
-## References

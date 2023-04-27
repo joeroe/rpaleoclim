@@ -49,18 +49,10 @@ paleoclim("lh", "10m") |>
   plot()
 ```
 
-`paleoclim()` can also crop the output raster to a desired region:
-
-```{r paleoclim-crop-demo, message=FALSE}
-europe <- c(-15, 45, 30, 90)
-
-paleoclim("lh", "10m", region = europe) |>
-  plot()
-```
-
 By default, files from PaleoClim are cached in a local temporary directory to avoid repeated download of the same data.
-
 `load_paleoclim()` reads local PaleoClim files (in `.zip` format) in the same way.
+
+For further details see the [introduction to rpaleoclim](https://rpaleoclim.joeroe.io/articles/rpaleoclim.html) vignette (`vignette("rpaleoclim")`).
 
 ## Citation
 

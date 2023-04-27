@@ -55,22 +55,14 @@ paleoclim("lh", "10m") |>
 
 <img src="man/figures/README-rpaleoclim-demo-1.png" width="100%" />
 
-`paleoclim()` can also crop the output raster to a desired region:
-
-``` r
-europe <- c(-15, 45, 30, 90)
-
-paleoclim("lh", "10m", region = europe) |>
-  plot()
-```
-
-<img src="man/figures/README-paleoclim-crop-demo-1.png" width="100%" />
-
 By default, files from PaleoClim are cached in a local temporary
 directory to avoid repeated download of the same data.
-
 `load_paleoclim()` reads local PaleoClim files (in `.zip` format) in the
 same way.
+
+For further details see the [introduction to
+rpaleoclim](https://rpaleoclim.joeroe.io/articles/rpaleoclim.html)
+vignette (`vignette("rpaleoclim")`).
 
 ## Citation
 
@@ -79,11 +71,10 @@ authors](http://paleoclim.org/how-to-cite/) when citing PaleoClim data.
 At time of writing, this includes a citation to the paper the describing
 the PaleoClim database:
 
--   Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood,
-    A.M., 2018. [PaleoClim, high spatial resolution paleoclimate
-    surfaces for global land
-    areas](https://www.nature.com/articles/sdata2018254). *Scientific
-    Data* 5, 180254. <doi:10.1038/sdata.2018.254>
+- Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood,
+  A.M., 2018. [PaleoClim, high spatial resolution paleoclimate surfaces
+  for global land areas](https://www.nature.com/articles/sdata2018254).
+  *Scientific Data* 5, 180254. <doi:10.1038/sdata.2018.254>
 
 As well as the original papers for the individual original datasets
 used.
