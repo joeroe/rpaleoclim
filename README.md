@@ -29,9 +29,16 @@ resolution, and geographic extent.
 
 ## Installation
 
-You can install the development version of rpaleoclim from GitHub using
-the [`remotes`](https://github.com/r-lib/remotes) or
-[`devtools`](https://github.com/r-lib/devtools) packages:
+You can install the latest release of rpaleoclim from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+install.packages("rpaleoclim")
+```
+
+Or the development version from
+[GitHub](https://github.com/joeroe/rpaleoclim) using the
+[`remotes`](https://github.com/r-lib/remotes) package:
 
 ``` r
 remotes::install_github("joeroe/rpaleoclim")
