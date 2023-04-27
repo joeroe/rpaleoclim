@@ -16,7 +16,7 @@ coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)
 [![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
 <!-- badges: end -->
 
-[PaleoClim](http://paleoclim.org) is a set of free, high resolution
+[PaleoClim](http://www.paleoclim.org) is a set of free, high resolution
 paleoclimate surfaces covering the whole globe. It includes data on
 surface temperature, precipitation and the standard bioclimatic
 variables commonly used in ecological modelling, derived from the HadCM3
@@ -74,9 +74,9 @@ vignette (`vignette("rpaleoclim")`).
 ## Citation
 
 Please follow the [instructions from the
-authors](http://paleoclim.org/how-to-cite/) when citing PaleoClim data.
-At time of writing, this includes a citation to the paper the describing
-the PaleoClim database:
+authors](http://www.paleoclim.org/how-to-cite/) when citing PaleoClim
+data. At time of writing, this includes a citation to the paper the
+describing the PaleoClim database:
 
 - Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood,
   A.M., 2018. [PaleoClim, high spatial resolution paleoclimate surfaces

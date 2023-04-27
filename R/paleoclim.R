@@ -1,6 +1,6 @@
 #' Retrieve data from PaleoClim
 #'
-#' Downloads data from PaleoClim (<http://paleoclim.org>) and loads it into R
+#' Downloads data from PaleoClim (<http://www.paleoclim.org>) and loads it into R
 #' as a `SpatRaster` object.
 #'
 #' @param period      Character. Time period to retrieve.
@@ -21,7 +21,7 @@
 #'   progress information.
 #'
 #' @details
-#' See <http://paleoclim.org> for details of the datasets and codings.
+#' See <http://www.paleoclim.org> for details of the datasets and codings.
 #' Data at 30s resolution is only available for 'cur' and 'lgm'.
 #'
 #' By default, `paleoclim()` will read previously downloaded files in R's

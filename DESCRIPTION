@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre", "cph"),
            email = "joe@joeroe.io")
 Description: 
-    'PaleoClim' <http://paleoclim.org> (Brown et al. 2019, 
+    'PaleoClim' <http://www.paleoclim.org> (Brown et al. 2019, 
   <doi:10.1038/sdata.2018.254>) is a set of free, high resolution paleoclimate 
   surfaces covering the whole globe. It includes data on surface temperature,
   precipitation and the standard bioclimatic variables commonly used in 

@@ -44,11 +44,11 @@ progress information.}
 as a separate named layer.
 }
 \description{
-Downloads data from PaleoClim (\url{http://paleoclim.org}) and loads it into R
+Downloads data from PaleoClim (\url{http://www.paleoclim.org}) and loads it into R
 as a \code{SpatRaster} object.
 }
 \details{
-See \url{http://paleoclim.org} for details of the datasets and codings.
+See \url{http://www.paleoclim.org} for details of the datasets and codings.
 Data at 30s resolution is only available for 'cur' and 'lgm'.
 
 By default, \code{paleoclim()} will read previously downloaded files in R's

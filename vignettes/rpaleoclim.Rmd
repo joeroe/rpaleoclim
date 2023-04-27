@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[PaleoClim](http://paleoclim.org)^[Brown, J., Hill, D., Dolan, A. et al. PaleoClim, high spatial resolution paleoclimate surfaces for global land areas. *Sci Data* 5, 180254 (2018). <https://doi.org/10.1038/sdata.2018.254>] is a set of free, high resolution paleoclimate surfaces covering the whole globe.
+[PaleoClim](http://www.paleoclim.org)^[Brown, J., Hill, D., Dolan, A. et al. PaleoClim, high spatial resolution paleoclimate surfaces for global land areas. *Sci Data* 5, 180254 (2018). <https://doi.org/10.1038/sdata.2018.254>] is a set of free, high resolution paleoclimate surfaces covering the whole globe.
 It includes data on surface temperature, precipitation and the standard bioclimatic variables commonly used in ecological modelling, derived from the HadCM3 general circulation model and downscaled to a spatial resolution of up to 2.5 minutes.
 Simulations are available for key time periods from the Late Holocene to mid-Pliocene.
 Data on current and Last Glacial Maximum climate is derived from [CHELSA](https://chelsa-climate.org/)^[Karger, D., Conrad, O., Böhner, J. et al. Climatologies at high resolution for the earth’s land surface areas. *Sci Data* 4, 170122 (2017). <https://doi.org/10.1038/sdata.2017.122>] and reprocessed by PaleoClim to match their format; it is available at up to 30 seconds resolution.
@@ -174,7 +174,7 @@ Please note that `raster` support will be removed in a future version of `rpaleo
 
 ## Citing data
 
-Please follow the [instructions from the authors](http://paleoclim.org/how-to-cite/) when citing PaleoClim data.
+Please follow the [instructions from the authors](http://www.paleoclim.org/how-to-cite/) when citing PaleoClim data.
 At time of writing, this includes a citation to the paper the describing the PaleoClim database:
 
 -   Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood, A.M., 2018. [PaleoClim, high spatial resolution paleoclimate surfaces for global land areas](https://www.nature.com/articles/sdata2018254). *Scientific Data* 5, 180254. <doi:10.1038/sdata.2018.254>

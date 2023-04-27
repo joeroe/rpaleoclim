@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
 <!-- badges: end -->
 
-[PaleoClim](http://paleoclim.org) is a set of free, high resolution paleoclimate surfaces covering the whole globe. 
+[PaleoClim](http://www.paleoclim.org) is a set of free, high resolution paleoclimate surfaces covering the whole globe. 
 It includes data on surface temperature, precipitation and the standard bioclimatic variables commonly used in  ecological modelling, derived from the HadCM3 general circulation model and  downscaled to a spatial resolution of up to 2.5 minutes. 
 
 This package provides a simple interface for downloading PaleoClim data in R, with support for caching and filtering retrieved data by period, resolution, and geographic extent.
@@ -62,7 +62,7 @@ For further details see the [introduction to rpaleoclim](https://rpaleoclim.joer
 
 ## Citation
 
-Please follow the [instructions from the authors](http://paleoclim.org/how-to-cite/) when citing PaleoClim data. 
+Please follow the [instructions from the authors](http://www.paleoclim.org/how-to-cite/) when citing PaleoClim data. 
 At time of writing, this includes a citation to the paper the describing the PaleoClim database:
 
 * Brown, J.L., Hill, D.J., Dolan, A.M., Carnaval, A.C., Haywood, A.M., 2018. [PaleoClim, high spatial resolution paleoclimate surfaces for global land areas](https://www.nature.com/articles/sdata2018254). *Scientific Data* 5, 180254. doi:10.1038/sdata.2018.254
