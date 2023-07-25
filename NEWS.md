@@ -1,4 +1,4 @@
-# rpaleoclim (development version)
+# rpaleoclim 1.0.1
 
 * Removed suggested dependency on rgdal (#18)
   * raster (>= 3.5.1) now uses terra (>= 1.5-12) for linking to GDAL
