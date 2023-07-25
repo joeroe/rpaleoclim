@@ -49,8 +49,7 @@ remotes::install_github("joeroe/rpaleoclim")
 The package includes two functions, `paleoclim()` and
 `load_paleoclim()`. `paleoclim()` downloads data from PaleoClim with the
 desired period and resolution and reads it into R as a
-[SpatRaster](https://rspatial.org/spatial-terra/8-rastermanip.html)
-object.
+[SpatRaster](https://rspatial.org/spatial/4-rasterdata.html) object.
 
 ``` r
 library("rpaleoclim")

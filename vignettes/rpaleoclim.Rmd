@@ -119,7 +119,7 @@ paleoclim("lh", "10m")
 ```
 
 The result is a `SpatRaster` object with up to 19 layers containing reconstructed values of the standard "bioclimatic variables" (see above) for this period.
-Consult the `terra` documentation for information on [working with spatial raster data](https://rspatial.org/spatial-terra/8-rastermanip.html) in R.
+Consult the `terra` documentation for information on [working with spatial raster data](https://rspatial.org/spatial/4-rasterdata.html) in R.
 
 By default, `paleoclim()` loads the entire downloaded raster into R, i.e. the whole globe.
 You can conveniently crop it to a specific (rectangular) region of interest with the `region` argument.
@@ -158,10 +158,10 @@ It can be useful to change this to somewhere within the working directory to reu
 
 Since version 0.9.1, rpaleoclim has depended on the [terra](https://rspatial.org/terra/) package for reading and manipulating spatial data.
 Previous versions used [raster](https://rspatial.org/raster/) and `rgdal`, which [are now deprecated](https://r-spatial.org/r/2022/04/12/evolution.html).
-To use the old `raster` types, you will need to install the optional dependencies `raster` and `rgdal` (like `terra`, these require GDAL and PROJ system libraries):
+To use the old `raster` types, you will need to install the optional dependency `raster`:
 
 ```{r install-raster, eval=FALSE}
-install.packages(c("rgdal", "raster"))
+install.packages(c("raster"))
 ```
 
 Then pass `as = "raster"` to `paleoclim()` or `load_paleoclim()` to return the data as a `RasterStack` object instead of a `SpatRaster`.
