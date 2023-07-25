@@ -1,8 +1,7 @@
+This is a patch release. The only significant change is to remove rgdal as a suggested dependency, as requested by the rgdal maintainer (https://github.com/joeroe/rpaleoclim/issues/18).
+
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a new submission
-
-* Possibly misspelled words in DESCRIPTION
-  Karger is a surname; I believe the rest are all spelled correctly.
+R CMD check succeeded
