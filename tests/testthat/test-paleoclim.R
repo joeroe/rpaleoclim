@@ -160,7 +160,7 @@ test_that('paleoclim() accepts a raster::extent', {
   expect_error(paleoclim("lh", "10m", region = extent, quiet = TRUE), NA)
 })
 
-test_that('error if load_paleoclim(as = "raster") is used without raster/rgdal', {
+test_that('error if load_paleoclim(as = "raster") is used without raster', {
   mockery::stub(paleoclim, "curl::curl_download", mock_download)
   mockery::stub(load_paleoclim, "requireNamespace", FALSE, depth = 2)
   expect_error(load_paleoclim(testfile, as = "raster"),

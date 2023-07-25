@@ -31,14 +31,13 @@ Imports:
     curl,
     fs,
     rlang,
-    terra,
+    terra (>= 1.5-12),
     utils
 Suggests: 
     knitr,
     covr,
     mockery,
-    raster (>= 3.0-2),
-    rgdal,
+    raster (>= 3.5-1),
     testthat (>= 3.0.0),
     rmarkdown
 Config/testthat/edition: 3

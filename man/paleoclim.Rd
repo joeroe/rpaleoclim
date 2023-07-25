@@ -29,7 +29,7 @@ globe.}
 (see \code{\link[raster:stack]{raster::stack()}}) instead of the default raster from
 the \code{terra} package. It is provided for backwards
 compatibility and will be removed in future versions.
-Requires the \code{raster} and \code{rgdal} packages.}
+Requires the \code{raster} package.}
 
 \item{skip_cache}{Logical. If \code{TRUE}, cached data will be ignored.}
 

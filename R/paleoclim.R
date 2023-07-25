@@ -13,7 +13,7 @@
 #'                    (see [raster::stack()]) instead of the default raster from
 #'                    the `terra` package. It is provided for backwards
 #'                    compatibility and will be removed in future versions.
-#'                    Requires the `raster` and `rgdal` packages.
+#'                    Requires the `raster` package.
 #' @param skip_cache  Logical. If `TRUE`, cached data will be ignored.
 #' @param cache_path  Logical. Path to directory where downloaded files should
 #'   be saved. Defaults to R's temporary directory.
@@ -140,7 +140,7 @@ construct_paleoclim_url <- function(period, resolution) {
 #'                    (see [raster::stack()]) instead of the default raster from
 #'                    the `terra` package. It is provided for backwards
 #'                    compatibility and will be removed in future versions.
-#'                    Requires the `raster` and `rgdal` packages.
+#'                    Requires the `raster` package.
 #'
 #' @return
 #' `SpatRaster` object (see [terra::rast()]) with each bioclimatic variable
@@ -164,10 +164,9 @@ load_paleoclim <- function(file, as = c("terra", "raster")) {
   raster <- terra::rast(tifs)
 
   if (as == "raster") {
-    if (!requireNamespace("raster", quietly = TRUE) ||
-        !requireNamespace("rgdal", quietly = TRUE)) {
+    if (!requireNamespace("raster", quietly = TRUE)) {
       rlang::abort(
-        '`as = "raster"` requires packages `raster` and `rgdal`',
+        '`as = "raster"` requires package `raster`',
         class = "rpaleoclim_missing_package"
       )
     }

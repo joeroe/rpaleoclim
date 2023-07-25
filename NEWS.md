@@ -1,5 +1,9 @@
 # rpaleoclim (development version)
 
+* Removed suggested dependency on rgdal (#18)
+  * raster (>= 3.5.1) now uses terra (>= 1.5-12) for linking to GDAL
+  * rgdal is retired and will be removed from CRAN in October 2023: https://r-spatial.org/r/2022/04/12/evolution.html
+
 # rpaleoclim 1.0.0
 
 * Added an introductory vignette

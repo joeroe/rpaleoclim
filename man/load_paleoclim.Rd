@@ -13,7 +13,7 @@ load_paleoclim(file, as = c("terra", "raster"))
 (see \code{\link[raster:stack]{raster::stack()}}) instead of the default raster from
 the \code{terra} package. It is provided for backwards
 compatibility and will be removed in future versions.
-Requires the \code{raster} and \code{rgdal} packages.}
+Requires the \code{raster} package.}
 }
 \value{
 \code{SpatRaster} object (see \code{\link[terra:rast]{terra::rast()}}) with each bioclimatic variable
