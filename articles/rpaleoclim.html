@@ -373,8 +373,8 @@ resolution. For example, to download data for the Late Holocene
 <p>The result is a <code>SpatRaster</code> object with up to 19 layers
 containing reconstructed values of the standard “bioclimatic variables”
 (see above) for this period. Consult the <code>terra</code>
-documentation for information on <a href="https://rspatial.org/spatial-terra/8-rastermanip.html" class="external-link">working
-with spatial raster data</a> in R.</p>
+documentation for information on <a href="https://rspatial.org/spatial/4-rasterdata.html" class="external-link">working with
+spatial raster data</a> in R.</p>
 <p>By default, <code><a href="../reference/paleoclim.html">paleoclim()</a></code> loads the entire downloaded
 raster into R, i.e. the whole globe. You can conveniently crop it to a
 specific (rectangular) region of interest with the <code>region</code>
@@ -437,11 +437,9 @@ is being downloaded or read from a cached file.</p>
 manipulating spatial data. Previous versions used <a href="https://rspatial.org/raster/" class="external-link">raster</a> and <code>rgdal</code>,
 which <a href="https://r-spatial.org/r/2022/04/12/evolution.html" class="external-link">are
 now deprecated</a>. To use the old <code>raster</code> types, you will
-need to install the optional dependencies <code>raster</code> and
-<code>rgdal</code> (like <code>terra</code>, these require GDAL and PROJ
-system libraries):</p>
+need to install the optional dependency <code>raster</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rgdal"</span>, <span class="st">"raster"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"raster"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Then pass <code>as = "raster"</code> to <code><a href="../reference/paleoclim.html">paleoclim()</a></code> or
 <code><a href="../reference/load_paleoclim.html">load_paleoclim()</a></code> to return the data as a
 <code>RasterStack</code> object instead of a
