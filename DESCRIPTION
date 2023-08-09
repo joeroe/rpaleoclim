@@ -1,6 +1,6 @@
 Package: rpaleoclim
 Title: Download Paleoclimate Data from 'PaleoClim'
-Version: 1.0.1
+Version: 1.0.1.9000
 Authors@R:
     person(given = "Joe",
            family = "Roe",
