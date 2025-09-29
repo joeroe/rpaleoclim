@@ -7,7 +7,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r rmarkdown-options, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "./"
+)
+```
 
 [PaleoClim](http://www.paleoclim.org)^[Brown, J., Hill, D., Dolan, A. et al. PaleoClim, high spatial resolution paleoclimate surfaces for global land areas. *Sci Data* 5, 180254 (2018). <https://doi.org/10.1038/sdata.2018.254>] is a set of free, high resolution paleoclimate surfaces covering the whole globe.
 It includes data on surface temperature, precipitation and the standard bioclimatic variables commonly used in ecological modelling, derived from the HadCM3 general circulation model and downscaled to a spatial resolution of up to 2.5 minutes.
@@ -20,8 +26,7 @@ This package provides a simple interface for downloading PaleoClim data in R, wi
 
 You can install the development version of rpaleoclim from GitHub using the [`remotes`](https://github.com/r-lib/remotes) package:
 
-
-``` r
+```{r install-rpaleoclim, eval=FALSE}
 remotes::install_github("joeroe/rpaleoclim")
 ```
 
@@ -39,54 +44,56 @@ If you notice a change or update to the PaleoClim data structure that isn't supp
 
 PaleoClim includes climate reconstructions from simulations of the following time intervals, supplemented with two additional datasets from CHELSA:
 
-
-
-|code  |period                             |bp            |source                    |
-|:-----|:----------------------------------|:-------------|:-------------------------|
-|cur   |Current (1979 – 2013)              |              |CHELSA                    |
-|lh    |Late Holocene: Meghalayan          |4.2-0.3 ka    |Fordham  et al. 2017      |
-|mh    |Mid Holocene: Northgrippian        |8.326-4.2 ka  |Fordham  et al. 2017      |
-|eh    |Early Holocene: Greenlandian       |11.7-8.326 ka |Fordham  et al. 2017      |
-|yds   |Pleistocene: Younger Dryas Stadial |12.9-11.7 ka  |Fordham  et al. 2017      |
-|ba    |Pleistocene: Bølling-Allerød       |14.7-12.9 ka  |Fordham  et al. 2017      |
-|hs1   |Pleistocene: Heinrich Stadial 1    |17.0-14.7 ka  |Fordham  et al. 2017      |
-|lgm   |Pleistocene: Last Glacial Maximum  |ca. 21 ka     |CHELSA                    |
-|lig   |Pleistocene: Last Interglacial     |ca. 130 ka    |Otto-Bliesner et al. 2006 |
-|mis19 |Pleistocene: MIS19                 |ca. 787 ka    |Brown et al. 2018         |
-|mpwp  |Pliocene: Mid-Pliocene warm period |3.205 Ma      |Hill 2015                 |
-|m2    |Pliocene: M2                       |ca. 3.3 Ma    |Dolan et al. 2015         |
-
-
+```{r paleoclim-periods, echo=FALSE}
+knitr::kable(read.csv("paleoclim_periods.csv"))
+```
 
 ### Bioclimatic variables
 
 PaleoClim uses the 16 standard "bioclimatic variables" with their conventional coding:
 
-
-
-|biovar |definition                           |formula             |
-|:------|:------------------------------------|:-------------------|
-|bio_1  |Mean annual temperature              |                    |
-|bio_2  |Mean diurnal range                   |                    |
-|bio_3  |Isothermality                        |(bio2 / bio7) * 100 |
-|bio_4  |Temperature seasonality              |sd(temp) * 100      |
-|bio_5  |Maximum temperature of warmest month |                    |
-|bio_6  |Minimum temperature of coldest month |                    |
-|bio_7  |Annual temperature range             |bio5 - bio6         |
-|bio_8  |Mean temperature of wettest quarter  |                    |
-|bio_9  |Mean temperature of driest quarter   |                    |
-|bio_10 |Mean temperature of warmest quarter  |                    |
-|bio_11 |Mean temperature of coldest quarter  |                    |
-|bio_12 |Total annual precipitation           |                    |
-|bio_13 |Precipitation of wettest month       |                    |
-|bio_14 |Precipitation of driest month        |                    |
-|bio_15 |Precipitation seasonality            |                    |
-|bio_16 |Precipitation of wettest quarter     |                    |
-|bio_17 |Precipitation of driest quarter      |                    |
-|bio_18 |Precipitation of warmest quarter     |                    |
-|bio_19 |Precipitation of coldest quarter     |                    |
-
-
+```{r biovars, echo=FALSE}
+knitr::kable(data.frame(biovar = paste0("bio_", 1:19),
+       definition = c("Mean annual temperature",
+                      "Mean diurnal range",
+                      "Isothermality",
+                      "Temperature seasonality",
+                      "Maximum temperature of warmest month",
+                      "Minimum temperature of coldest month",
+                      "Annual temperature range",
+                      "Mean temperature of wettest quarter",
+                      "Mean temperature of driest quarter",
+                      "Mean temperature of warmest quarter",
+                      "Mean temperature of coldest quarter",
+                      "Total annual precipitation",
+                      "Precipitation of wettest month",
+                      "Precipitation of driest month",
+                      "Precipitation seasonality",
+                      "Precipitation of wettest quarter",
+                      "Precipitation of driest quarter",
+                      "Precipitation of warmest quarter",
+                      "Precipitation of coldest quarter"),
+       formula = c("",
+                   "",
+                   "(bio2 / bio7) * 100",
+                   "sd(temp) * 100",
+                   "",
+                   "",
+                   "bio5 - bio6",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "")
+))
+```
 
 ### Other options
 
@@ -100,31 +107,16 @@ The options for `resolution` are:
 
 ## Retrieving data
 
-
-``` r
+```{r setup}
 library(rpaleoclim)
 library(terra)
-#> terra 1.8.54
 ```
 
 Use `paleoclim()` to download paleoclimate data from PaleoClim, specifying the desired time period (see above) and resolution.
 For example, to download data for the Late Holocene (`"lh"`) at 10 min resolution:
 
-
-``` r
+```{r eg-paleoclim}
 paleoclim("lh", "10m")
-#> class       : SpatRaster 
-#> size        : 1044, 2160, 19  (nrow, ncol, nlyr)
-#> resolution  : 0.1666667, 0.1666667  (x, y)
-#> extent      : -180.0001, 179.9999, -90.00014, 83.99986  (xmin, xmax, ymin, ymax)
-#> coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#> sources     : bio_1.tif  
-#>               bio_10.tif  
-#>               bio_11.tif  
-#>               ... and 16 more sources
-#> names       : bio_1, bio_10, bio_11, bio_12, bio_13, bio_14, ... 
-#> min values  :  -526,   -334,   -656,      0,      0,      0, ... 
-#> max values  :   314,    385,    288,   9696,   2399,    651, ...
 ```
 
 The result is a `SpatRaster` object with up to 19 layers containing reconstructed values of the standard "bioclimatic variables" (see above) for this period.
@@ -134,37 +126,19 @@ By default, `paleoclim()` loads the entire downloaded raster into R, i.e. the wh
 You can conveniently crop it to a specific (rectangular) region of interest with the `region` argument.
 This can be specified with a `SpatExtent` object or anything coercible to one (see `?terra::ext`), which includes most spatial data types, or simply a vector of coordinates (xmin, xmax, ymin, ymax):
 
-
-``` r
+```{r eg-paleoclim-crop}
 europe <- c(-15, 45, 30, 90)
 europe_lh <- paleoclim("lh", "10m", region = europe)
-#> Reading cached PaleoClim data from /tmp/Rtmppj4CG4/LH_v1_10m.zip
-#> ℹ Use `skip_cache = TRUE` to force redownload.
 
 plot(europe_lh[["bio_12"]], main = "Late Holocene annual precipitation, Europe")
 ```
 
-![plot of chunk eg-paleoclim-crop](./eg-paleoclim-crop-1.png)
-
 If you have already downloaded data from PaleoClim and simply want to read it into R, you can do so with `load_paleoclim()`, passing it the path to the `.zip` archive:
 
-
-``` r
+```{r eg-load-paleoclim}
 zipfile <- system.file("testdata", "LH_v1_10m_cropped.zip",
                        package = "rpaleoclim")
 load_paleoclim(zipfile)
-#> class       : SpatRaster 
-#> size        : 6, 6, 19  (nrow, ncol, nlyr)
-#> resolution  : 0.1666667, 0.1666667  (x, y)
-#> extent      : 0, 1, 0, 1  (xmin, xmax, ymin, ymax)
-#> coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#> sources     : bio_1.tif  
-#>               bio_10.tif  
-#>               bio_11.tif  
-#>               ... and 16 more sources
-#> names       : bio_1, bio_10, bio_11, bio_12, bio_13, bio_14, ... 
-#> min values  :  -526,   -334,   -656,      0,      0,      0, ... 
-#> max values  :   314,    385,    288,   9696,   2399,    651, ...
 ```
 
 ### Caching
@@ -187,28 +161,14 @@ Since version 0.9.1, rpaleoclim has depended on the [terra](https://rspatial.org
 Previous versions used [raster](https://rspatial.org/raster/) and `rgdal`, which [are now deprecated](https://r-spatial.org/r/2022/04/12/evolution.html).
 To use the old `raster` types, you will need to install the optional dependency `raster`:
 
-
-``` r
+```{r install-raster, eval=FALSE}
 install.packages(c("raster"))
 ```
 
 Then pass `as = "raster"` to `paleoclim()` or `load_paleoclim()` to return the data as a `RasterStack` object instead of a `SpatRaster`.
 
-
-``` r
+```{r eg-raster}
 paleoclim("lh", "10m", as = "raster")
-#> Reading cached PaleoClim data from /tmp/Rtmppj4CG4/LH_v1_10m.zip
-#> ℹ Use `skip_cache = TRUE` to force redownload.
-#> Warning: `as = "raster"` is deprecated and will be removed in future versions of rpaleoclim
-#> This warning is displayed once per session.
-#> class      : RasterStack 
-#> dimensions : 1044, 2160, 2255040, 19  (nrow, ncol, ncell, nlayers)
-#> resolution : 0.1666667, 0.1666667  (x, y)
-#> extent     : -180.0001, 179.9999, -90.00014, 83.99986  (xmin, xmax, ymin, ymax)
-#> crs        : +proj=longlat +datum=WGS84 +no_defs 
-#> names      : bio_1, bio_10, bio_11, bio_12, bio_13, bio_14, bio_15, bio_16, bio_17, bio_18, bio_19, bio_2, bio_3, bio_4, bio_5, ... 
-#> min values :  -526,   -334,   -656,      0,      0,      0,      0,      0,      0,      0,      0,     6,     3,   116,  -292, ... 
-#> max values :   314,    385,    288,   9696,   2399,    651,    215,   6321,   2025,   5128,   3860,   169,    90, 24243,   481, ...
 ```
 
 Please note that `raster` support will be removed in a future version of `rpaleoclim`.

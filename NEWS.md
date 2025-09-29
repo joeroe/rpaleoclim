@@ -2,6 +2,8 @@
 
 * Failed downloads (e.g. due to server errors) now return `NA` and a warning,
   instead of causing an error
+* 'Getting started' vignette is now precompiled so that building the package does
+  generate a request to the Paleoclim data server (#20)
 
 # rpaleoclim 1.0.1
 
