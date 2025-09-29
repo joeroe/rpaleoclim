@@ -1,42 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/404.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/articles/rpaleoclim.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/authors.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/index.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/news/index.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/reference/load_paleoclim.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/reference/paleoclim.html</loc>
-  </url>
-  <url>
-    <loc>http://joeroe.io/rpaleoclim/reference/rpaleoclim-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://joeroe.io/rpaleoclim/404.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/CONTRIBUTING.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/LICENSE-text.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/LICENSE.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/articles/index.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/articles/rpaleoclim.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/authors.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/index.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/news/index.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/reference/index.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/reference/load_paleoclim.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/reference/paleoclim.html</loc></url>
+<url><loc>http://joeroe.io/rpaleoclim/reference/rpaleoclim-package.html</loc></url>
 </urlset>
+
