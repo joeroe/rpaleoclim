@@ -1,4 +1,4 @@
-# rpaleoclim (development version)
+# rpaleoclim 1.1.0
 
 * Failed downloads (e.g. due to server errors) now return `NA` and a warning,
   instead of causing an error
