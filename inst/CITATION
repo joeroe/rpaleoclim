@@ -74,7 +74,6 @@ bibentry(
   year     = 2015,
   volume   = 425,
   pages    = "232-241",
-  url      = "https://www.sciencedirect.com/science/article/pii/S0012821X15003428",
   doi      = "10.1016/j.epsl.2015.05.044",
   textVersion = 'Hill Daniel J. "The non-analogue nature of Pliocene temperature gradients ". Earth and Planetary Science Letters 425. (2015): 232-241.'
 )
@@ -96,7 +95,6 @@ bibentry(
   year     = 2015,
   volume   = 128,
   pages    = "47-60",
-  url      = "https://www.sciencedirect.com/science/article/pii/S0921818115000399",
   doi      = "10.1016/j.gloplacha.2015.02.001",
   textVersion = 'Dolan Aisling M, et al. "Modelling the enigmatic Late Pliocene Glacial Event — Marine Isotope Stage M2". Global and Planetary Change 128. (2015): 47-60.'
 )
