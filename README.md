@@ -10,9 +10,9 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rpaleoclim)](https://CRAN.R-project.org/package=rpaleoclim)
-[![R-CMD-check](https://github.com/joeroe/rpaleoclim/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/rpaleoclim/actions)
+[![R-CMD-check](https://github.com/joeroe/rpaleoclim/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/rpaleoclim/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/joeroe/rpaleoclim/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim?branch=master)
+coverage](https://codecov.io/gh/joeroe/rpaleoclim/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim)
 [![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
 <!-- badges: end -->
 
