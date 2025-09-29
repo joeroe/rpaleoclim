@@ -332,7 +332,7 @@ for <code>"cur"</code> and <code>"lgm"</code>)</li>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rpaleoclim.joeroe.io" class="external-link">rpaleoclim</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; terra 1.8.70</span></span></code></pre></div>
+<span><span class="co">#&gt; terra 1.8.54</span></span></code></pre></div>
 <p>Use <code><a href="../reference/paleoclim.html">paleoclim()</a></code> to download paleoclimate data from
 PaleoClim, specifying the desired time period (see above) and
 resolution. For example, to download data for the Late Holocene
@@ -366,9 +366,13 @@ ymin, ymax):</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">europe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">15</span>, <span class="fl">45</span>, <span class="fl">30</span>, <span class="fl">90</span><span class="op">)</span></span>
 <span><span class="va">europe_lh</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/paleoclim.html">paleoclim</a></span><span class="op">(</span><span class="st">"lh"</span>, <span class="st">"10m"</span>, region <span class="op">=</span> <span class="va">europe</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Reading cached PaleoClim data from /tmp/Rtmppj4CG4/LH_v1_10m.zip</span></span>
+<span><span class="co">#&gt; ℹ Use `skip_cache = TRUE` to force redownload.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">europe_lh</span><span class="op">[[</span><span class="st">"bio_12"</span><span class="op">]</span><span class="op">]</span>, main <span class="op">=</span> <span class="st">"Late Holocene annual precipitation, Europe"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="rpaleoclim_files/figure-html/eg-paleoclim-crop-1.png" width="700"></p>
+<div class="float">
+<img src="eg-paleoclim-crop-1.png" alt="plot of chunk eg-paleoclim-crop"><div class="figcaption">plot of chunk eg-paleoclim-crop</div>
+</div>
 <p>If you have already downloaded data from PaleoClim and simply want to
 read it into R, you can do so with <code><a href="../reference/load_paleoclim.html">load_paleoclim()</a></code>,
 passing it the path to the <code>.zip</code> archive:</p>
@@ -427,8 +431,10 @@ need to install the optional dependency <code>raster</code>:</p>
 <code>SpatRaster</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paleoclim.html">paleoclim</a></span><span class="op">(</span><span class="st">"lh"</span>, <span class="st">"10m"</span>, as <span class="op">=</span> <span class="st">"raster"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Reading cached PaleoClim data from /tmp/Rtmppj4CG4/LH_v1_10m.zip</span></span>
+<span><span class="co">#&gt; ℹ Use `skip_cache = TRUE` to force redownload.</span></span>
 <span><span class="co">#&gt; Warning: `as = "raster"` is deprecated and will be removed in future versions of rpaleoclim</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;">This warning is displayed once per session.</span></span></span>
+<span><span class="co">#&gt; This warning is displayed once per session.</span></span>
 <span><span class="co">#&gt; class      : RasterStack </span></span>
 <span><span class="co">#&gt; dimensions : 1044, 2160, 2255040, 19  (nrow, ncol, ncell, nlayers)</span></span>
 <span><span class="co">#&gt; resolution : 0.1666667, 0.1666667  (x, y)</span></span>
