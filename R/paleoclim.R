@@ -58,15 +58,12 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
 
   if (isFALSE(interactive())) quiet <- TRUE
 
+  # Download
   if (!fs::file_exists(tmpfile) | isTRUE(skip_cache)) {
-    curl::nslookup("www.sdmtoolbox.org", error = TRUE)
-    curl::curl_download(
-      url,
-      tmpfile,
-      quiet = quiet,
-      handle = curl::new_handle(timeout = max(3600, getOption("timeout")))
-    )
+    raster <- download_paleoclim(url, tmpfile, as, quiet)
   }
+
+  # Or read from cache
   else {
     if (!isTRUE(quiet)) {
       rlang::inform(
@@ -76,9 +73,8 @@ paleoclim <- function(period = c("lh", "mh", "eh", "yds", "ba", "hs1",
         )
       )
     }
+    raster <- load_paleoclim(tmpfile, as)
   }
-
-  raster <- load_paleoclim(tmpfile, as)
 
   if (!is.null(region)) {
     raster <- terra::crop(raster, region)
@@ -131,6 +127,25 @@ construct_paleoclim_url <- function(period, resolution) {
   return(url)
 }
 
+#' Download file from PaleoClim
+#' 
+#' If possible; otherwise 'fail gracefully' by returning NA with a warning.
+#' 
+#' @noRd
+#' @keywords internal
+download_paleoclim <- function(url, tmpfile, as, quiet = FALSE) {
+    res <- curl::curl_fetch_disk(
+      url,
+      tmpfile,
+      handle = curl::new_handle(timeout = max(3600, getOption("timeout")))
+    )
+
+    httr::warn_for_status(res$status_code)
+
+    if (res$status_code == 200) load_paleoclim(tmpfile, as)
+    else NA
+}
+
 #' Load data from PaleoClim
 #'
 #' Loads a PaleoClim data file (`.zip` format) into R as a `SpatRaster`.
@@ -161,9 +176,10 @@ load_paleoclim <- function(file, as = c("terra", "raster")) {
   tifs <- fs::dir_ls(tmpdir, recurse = TRUE, glob = "*.tif")
   names(tifs) <- fs::path_ext_remove(fs::path_file(tifs))
 
-  raster <- terra::rast(tifs)
+  if (length(tifs) > 0) raster <- terra::rast(tifs)
+  else raster <- terra::rast()
 
-  if (as == "raster") {
+  if (as == "raster" ) {
     if (!requireNamespace("raster", quietly = TRUE)) {
       rlang::abort(
         '`as = "raster"` requires package `raster`',

@@ -1,16 +1,31 @@
+# Make sure tests don't rely on an internet connection
+local_mocked_bindings(
+  download_paleoclim = function(url, tmpfile, as, quiet = FALSE) {
+    if (!isTRUE(quiet)) {
+      rlang::inform(
+        paste0("Pretending to download <", url, "> to ", tmpfile, " ...")
+      )
+    }
+    dummy_file <- system.file("testdata", "LH_v1_10m_cropped.zip",
+                              package = "rpaleoclim",
+                              mustWork = TRUE)
+    fs::file_copy(dummy_file, tmpfile, overwrite = TRUE)
+
+    load_paleoclim(tmpfile, as)
+  }
+)
+
 test_that('paleoclim files can be read as rasters', {
   expect_error(pc <- load_paleoclim(testfile), NA)
   expect_s4_class(pc, "SpatRaster")
 })
 
 test_that('minimal paleoclim() returns a raster without error', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
   expect_error(pc <- paleoclim("lh", "10m", quiet = TRUE), NA)
   expect_s4_class(pc, "SpatRaster")
 })
 
 test_that('paleoclim() shows error on invalid parameters', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
   expect_error(paleoclim("third_age"), "period")
   expect_error(paleoclim("lh", "1cm"), "resolution")
 
@@ -21,8 +36,7 @@ test_that('paleoclim() shows error on invalid parameters', {
 })
 
 test_that('cached files are used where appropriate', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  mockery::stub(paleoclim, "interactive", TRUE)
+  local_mocked_bindings(interactive = function() TRUE)
   # Ensure we use a clean temp directory
   tmp <- fs::path_temp(paste0("test-paleoclim-", as.numeric(Sys.time())))
   fs::dir_create(tmp)
@@ -32,8 +46,7 @@ test_that('cached files are used where appropriate', {
 })
 
 test_that('paleoclim() respects cache_path', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  mockery::stub(paleoclim, "interactive", TRUE)
+  local_mocked_bindings(interactive = function() TRUE)
   tmp <- fs::path_temp(paste0("test-paleoclim-", as.numeric(Sys.time())))
   fs::dir_create(tmp)
   filename <- fs::path_file(construct_paleoclim_url("lh", "10m"))
@@ -42,16 +55,14 @@ test_that('paleoclim() respects cache_path', {
 })
 
 test_that('cache status messages are controlled by `quiet`', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  mockery::stub(paleoclim, "interactive", TRUE)
+  local_mocked_bindings(interactive = function() TRUE)
   paleoclim("lh", "10m", skip_cache = TRUE, quiet = TRUE) # Ensure cached
   expect_message(paleoclim("lh", "10m", quiet = FALSE), "cached")
   expect_silent(paleoclim("lh", "10m", quiet = TRUE))
 })
 
 test_that('download progress messages are controlled by `quiet`', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  mockery::stub(paleoclim, "interactive", TRUE)
+  local_mocked_bindings(interactive = function() TRUE)
   expect_message(paleoclim("lh", "10m", skip_cache = TRUE, quiet = FALSE), "download")
   expect_silent(paleoclim("lh", "10m", skip_cache = TRUE, quiet = TRUE))
 })
@@ -147,22 +158,19 @@ test_that('raster is cropped to desired extent', {
                tolerance = 1 / 6)
 })
 
-test_that('paleoclim(as = "raster") returns a RasterStack', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  expect_warning(x <- paleoclim("lh", "10m", as = "raster", quiet = TRUE),
+test_that('paleoclim(as = "raster") returns a RasterStack with a warning', {
+  expect_warning(x <- paleoclim("lh", "10m", as = "raster", quiet = FALSE),
                  class = "rpaleoclim_raster_deprecation")
   expect_s4_class(x, "RasterStack")
 })
 
 test_that('paleoclim() accepts a raster::extent', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
   extent <- raster::extent(0, 1, 0, 1)
   expect_error(paleoclim("lh", "10m", region = extent, quiet = TRUE), NA)
 })
 
 test_that('error if load_paleoclim(as = "raster") is used without raster', {
-  mockery::stub(paleoclim, "curl::curl_download", mock_download)
-  mockery::stub(load_paleoclim, "requireNamespace", FALSE, depth = 2)
+  local_mocked_bindings(requireNamespace = function(...) FALSE)
   expect_error(load_paleoclim(testfile, as = "raster"),
                class = "rpaleoclim_missing_package")
 })
