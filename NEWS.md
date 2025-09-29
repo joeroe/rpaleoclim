@@ -1,5 +1,8 @@
 # rpaleoclim (development version)
 
+* Failed downloads (e.g. due to server errors) now return `NA` and a warning,
+  instead of causing an error
+
 # rpaleoclim 1.0.1
 
 * Removed suggested dependency on rgdal (#18)
