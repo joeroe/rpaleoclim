@@ -15,7 +15,6 @@ bibentry(
   year     = 2018,
   volume   = 5,
   pages    = 180254,
-  url      = "https://www.nature.com/articles/sdata2018254",
   doi      = "10.1038/sdata.2018.254",
   textVersion = 'Brown Jason L, et al. "PaleoClim, high spatial resolution paleoclimate surfaces for global land areas". Scientific Data 5. (2018): 180254.'
 )
@@ -38,7 +37,6 @@ bibentry(
   volume   = 40,
   issue    = 11,
   pages    = "1348-1358",
-  url      = "https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.03031",
   doi      = "10.1111/ecog.03031",
   textVersion = 'Fordham Damien A, et al. "PaleoView: a tool for generating continuous climate projections spanning the last 21 000 years at regional and global scales". Ecography 40. (2017): 1348-1358.'
 )
@@ -60,7 +58,6 @@ bibentry(
   volume   = 311,
   issue    = 5768,
   pages    = "1751-1753",
-  url      = "https://www.science.org/doi/10.1126/science.1120808",
   doi      = "10.1126/science.1120808",
   textVersion = 'Otto-Bliesner Bette L., et al. "Simulating Arctic Climate Warmth and Icefield Retreat in the Last Interglaciation". Science 311. (2006): 1751-1753.'
 )
@@ -118,7 +115,6 @@ bibentry(
   year     = 2017,
   volume   = 4,
   pages    = "170122",
-  url      = "https://www.nature.com/articles/sdata2017122",
   doi      = "10.1038/sdata.2017.122",
   textVersion = 'Karger Dirk Nikolaus, et al. "Climatologies at high resolution for the earth’s land surface areas". Scientific Data 4. (2017): 170122.'
 )
