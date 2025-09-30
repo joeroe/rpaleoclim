@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rpaleoclim</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,9 +30,12 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/joeroe/rpaleoclim/blob/v1.1.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/joeroe/rpaleoclim/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="development version" id="rpaleoclim-development-version">rpaleoclim (development version)<a class="anchor" aria-label="anchor" href="#rpaleoclim-development-version"></a></h2>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.0" id="rpaleoclim-110">rpaleoclim 1.1.0<a class="anchor" aria-label="anchor" href="#rpaleoclim-110"></a></h2>
 <ul><li>Failed downloads (e.g. due to server errors) now return <code>NA</code> and a warning, instead of causing an error</li>
@@ -49,7 +52,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="rpaleoclim-100">rpaleoclim 1.0.0<a class="anchor" aria-label="anchor" href="#rpaleoclim-100"></a></h2><p class="text-muted">CRAN release: 2023-04-28</p>
 <ul><li>Added an introductory vignette</li>
-<li>Migrated from <code>terra</code> to <code>raster</code>:
+<li>Migrated from <code>raster</code> to <code>terra</code>:
 <ul><li>
 <code><a href="../reference/paleoclim.html">paleoclim()</a></code> and <code><a href="../reference/load_paleoclim.html">load_paleoclim()</a></code> now return a <code><a href="https://rspatial.github.io/terra/reference/SpatRaster-class.html" class="external-link">terra::SpatRaster</a></code> instead of a <code><a href="https://rdrr.io/pkg/raster/man/raster.html" class="external-link">raster::raster</a></code>.</li>
 <li>
