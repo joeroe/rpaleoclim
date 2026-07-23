@@ -1,7 +1,8 @@
 # rpaleoclim: download paleoclimate data from PaleoClim in R
 
 [![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
-[![](https://cranlogs.r-pkg.org/badges/rpaleoclim)](https://cran.rstudio.com/web/packages/rpaleoclim/index.html)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/rpaleoclim)](https://cranlogs.r-pkg.org/)
 
 [PaleoClim](http://www.paleoclim.org) is a set of free, high resolution
 paleoclimate surfaces covering the whole globe. It includes data on
