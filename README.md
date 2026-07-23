@@ -15,7 +15,8 @@ status](https://www.r-pkg.org/badges/version/rpaleoclim)](https://CRAN.R-project
 coverage](https://codecov.io/gh/joeroe/rpaleoclim/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim)
 
 [![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
-[![](https://cranlogs.r-pkg.org/badges/rpaleoclim)](https://cran.rstudio.com/web/packages/rpaleoclim/index.html)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/rpaleoclim)](https://cranlogs.r-pkg.org/)
 <!-- badges: end -->
 
 [PaleoClim](http://www.paleoclim.org) is a set of free, high resolution
