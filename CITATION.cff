@@ -1,7 +1,7 @@
-# --------------------------------------------
-# CITATION file created with {cffr} R package
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# --------------------------------------------
+# ------------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "rpaleoclim" in publications use:'
@@ -188,10 +188,8 @@ references:
     given-names: Jim
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@posit.co
   - family-names: Csárdi
     given-names: Gábor
-    email: csardi.gabor@gmail.com
   year: '2026'
   doi: 10.32614/CRAN.package.fs
 - type: software
@@ -232,6 +230,12 @@ references:
     given-names: Robert J.
     email: r.hijmans@gmail.com
     orcid: https://orcid.org/0000-0001-5872-2872
+  - family-names: Brown
+    given-names: Andrew
+    orcid: https://orcid.org/0000-0002-4565-533X
+  - family-names: Barbosa
+    given-names: Márcia
+    orcid: https://orcid.org/0000-0001-8972-7713
   year: '2026'
   doi: 10.32614/CRAN.package.terra
   version: '>= 1.5-12'
@@ -241,10 +245,13 @@ references:
   notes: Imports
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
+  doi: 10.32614/R.manuals
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
