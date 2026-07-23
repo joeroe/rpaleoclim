@@ -34,16 +34,16 @@ with each bioclimatic variable as a separate named layer.
 file <- system.file("testdata", "LH_v1_10m_cropped.zip",
                     package = "rpaleoclim")
 load_paleoclim(file)
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 6, 6, 19  (nrow, ncol, nlyr)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : 0, 1, 0, 1  (xmin, xmax, ymin, ymax)
-#> coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#> sources     : bio_1.tif  
-#>               bio_10.tif  
-#>               bio_11.tif  
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> sources     : bio_1.tif
+#>               bio_10.tif
+#>               bio_11.tif
 #>               ... and 16 more sources
-#> names       : bio_1, bio_10, bio_11, bio_12, bio_13, bio_14, ... 
-#> min values  :  -526,   -334,   -656,      0,      0,      0, ... 
-#> max values  :   314,    385,    288,   9696,   2399,    651, ... 
+#> names       : bio_1, bio_10, bio_11, bio_12, bio_13, bio_14, ...
+#> min values  :  -526,   -334,   -656,      0,      0,      0, ...
+#> max values  :   314,    385,    288,   9696,   2399,    651, ...
 ```

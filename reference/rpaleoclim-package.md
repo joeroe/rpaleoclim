@@ -29,3 +29,7 @@ Useful links:
 ## Author
 
 **Maintainer**: Joe Roe <joe@joeroe.io> \[copyright holder\]
+
+Authors:
+
+- Joe Roe <joe@joeroe.io> \[copyright holder\]

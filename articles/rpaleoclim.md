@@ -1,15 +1,15 @@
 # Introduction to rpaleoclim
 
-[PaleoClim](http://www.paleoclim.org)[¹](#fn1) is a set of free, high
+[PaleoClim](http://www.paleoclim.org)[^1] is a set of free, high
 resolution paleoclimate surfaces covering the whole globe. It includes
 data on surface temperature, precipitation and the standard bioclimatic
 variables commonly used in ecological modelling, derived from the HadCM3
 general circulation model and downscaled to a spatial resolution of up
 to 2.5 minutes. Simulations are available for key time periods from the
 Late Holocene to mid-Pliocene. Data on current and Last Glacial Maximum
-climate is derived from [CHELSA](https://chelsa-climate.org/)[²](#fn2)
-and reprocessed by PaleoClim to match their format; it is available at
-up to 30 seconds resolution.
+climate is derived from [CHELSA](https://chelsa-climate.org/)[^2] and
+reprocessed by PaleoClim to match their format; it is available at up to
+30 seconds resolution.
 
 This package provides a simple interface for downloading PaleoClim data
 in R, with support for caching and filtering retrieved data by period,
@@ -21,6 +21,7 @@ You can install the development version of rpaleoclim from GitHub using
 the [`remotes`](https://github.com/r-lib/remotes) package:
 
 ``` r
+
 remotes::install_github("joeroe/rpaleoclim")
 ```
 
@@ -50,20 +51,20 @@ PaleoClim includes climate reconstructions from simulations of the
 following time intervals, supplemented with two additional datasets from
 CHELSA:
 
-| code  | period                             | bp            | source                    |
-|:------|:-----------------------------------|:--------------|:--------------------------|
-| cur   | Current (1979 – 2013)              |               | CHELSA                    |
-| lh    | Late Holocene: Meghalayan          | 4.2-0.3 ka    | Fordham  et al. 2017      |
-| mh    | Mid Holocene: Northgrippian        | 8.326-4.2 ka  | Fordham  et al. 2017      |
-| eh    | Early Holocene: Greenlandian       | 11.7-8.326 ka | Fordham  et al. 2017      |
-| yds   | Pleistocene: Younger Dryas Stadial | 12.9-11.7 ka  | Fordham  et al. 2017      |
-| ba    | Pleistocene: Bølling-Allerød       | 14.7-12.9 ka  | Fordham  et al. 2017      |
-| hs1   | Pleistocene: Heinrich Stadial 1    | 17.0-14.7 ka  | Fordham  et al. 2017      |
-| lgm   | Pleistocene: Last Glacial Maximum  | ca. 21 ka     | CHELSA                    |
-| lig   | Pleistocene: Last Interglacial     | ca. 130 ka    | Otto-Bliesner et al. 2006 |
-| mis19 | Pleistocene: MIS19                 | ca. 787 ka    | Brown et al. 2018         |
-| mpwp  | Pliocene: Mid-Pliocene warm period | 3.205 Ma      | Hill 2015                 |
-| m2    | Pliocene: M2                       | ca. 3.3 Ma    | Dolan et al. 2015         |
+| code | period | bp | source |
+|:---|:---|:---|:---|
+| cur | Current (1979 – 2013) |  | CHELSA |
+| lh | Late Holocene: Meghalayan | 4.2-0.3 ka | Fordham  et al. 2017 |
+| mh | Mid Holocene: Northgrippian | 8.326-4.2 ka | Fordham  et al. 2017 |
+| eh | Early Holocene: Greenlandian | 11.7-8.326 ka | Fordham  et al. 2017 |
+| yds | Pleistocene: Younger Dryas Stadial | 12.9-11.7 ka | Fordham  et al. 2017 |
+| ba | Pleistocene: Bølling-Allerød | 14.7-12.9 ka | Fordham  et al. 2017 |
+| hs1 | Pleistocene: Heinrich Stadial 1 | 17.0-14.7 ka | Fordham  et al. 2017 |
+| lgm | Pleistocene: Last Glacial Maximum | ca. 21 ka | CHELSA |
+| lig | Pleistocene: Last Interglacial | ca. 130 ka | Otto-Bliesner et al. 2006 |
+| mis19 | Pleistocene: MIS19 | ca. 787 ka | Brown et al. 2018 |
+| mpwp | Pliocene: Mid-Pliocene warm period | 3.205 Ma | Hill 2015 |
+| m2 | Pliocene: M2 | ca. 3.3 Ma | Dolan et al. 2015 |
 
 ### Bioclimatic variables
 
@@ -105,6 +106,7 @@ The options for `resolution` are:
 ## Retrieving data
 
 ``` r
+
 library(rpaleoclim)
 library(terra)
 #> terra 1.8.54
@@ -116,6 +118,7 @@ time period (see above) and resolution. For example, to download data
 for the Late Holocene (`"lh"`) at 10 min resolution:
 
 ``` r
+
 paleoclim("lh", "10m")
 #> class       : SpatRaster 
 #> size        : 1044, 2160, 19  (nrow, ncol, nlyr)
@@ -148,6 +151,7 @@ which includes most spatial data types, or simply a vector of
 coordinates (xmin, xmax, ymin, ymax):
 
 ``` r
+
 europe <- c(-15, 45, 30, 90)
 europe_lh <- paleoclim("lh", "10m", region = europe)
 #> Reading cached PaleoClim data from /tmp/Rtmppj4CG4/LH_v1_10m.zip
@@ -166,6 +170,7 @@ read it into R, you can do so with
 passing it the path to the `.zip` archive:
 
 ``` r
+
 zipfile <- system.file("testdata", "LH_v1_10m_cropped.zip",
                        package = "rpaleoclim")
 load_paleoclim(zipfile)
@@ -220,6 +225,7 @@ the old `raster` types, you will need to install the optional dependency
 `raster`:
 
 ``` r
+
 install.packages(c("raster"))
 ```
 
@@ -229,6 +235,7 @@ Then pass `as = "raster"` to
 to return the data as a `RasterStack` object instead of a `SpatRaster`.
 
 ``` r
+
 paleoclim("lh", "10m", as = "raster")
 #> Reading cached PaleoClim data from /tmp/Rtmppj4CG4/LH_v1_10m.zip
 #> ℹ Use `skip_cache = TRUE` to force redownload.
@@ -265,12 +272,10 @@ used.
 Use `citation("paleoclim")` for more details and the references in
 BibTeX format.
 
-------------------------------------------------------------------------
-
-1.  Brown, J., Hill, D., Dolan, A. et al. PaleoClim, high spatial
+[^1]: Brown, J., Hill, D., Dolan, A. et al. PaleoClim, high spatial
     resolution paleoclimate surfaces for global land areas. *Sci Data*
     5, 180254 (2018). <https://doi.org/10.1038/sdata.2018.254>
 
-2.  Karger, D., Conrad, O., Böhner, J. et al. Climatologies at high
+[^2]: Karger, D., Conrad, O., Böhner, J. et al. Climatologies at high
     resolution for the earth’s land surface areas. *Sci Data* 4, 170122
     (2017). <https://doi.org/10.1038/sdata.2017.122>

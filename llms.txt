@@ -1,5 +1,8 @@
 # rpaleoclim: download paleoclimate data from PaleoClim in R
 
+[![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
+[![](https://cranlogs.r-pkg.org/badges/rpaleoclim)](https://cran.rstudio.com/web/packages/rpaleoclim/index.html)
+
 [PaleoClim](http://www.paleoclim.org) is a set of free, high resolution
 paleoclimate surfaces covering the whole globe. It includes data on
 surface temperature, precipitation and the standard bioclimatic
@@ -17,6 +20,7 @@ You can install the latest release of rpaleoclim from
 [CRAN](https://cran.r-project.org/) with:
 
 ``` r
+
 install.packages("rpaleoclim")
 ```
 
@@ -25,6 +29,7 @@ Or the development version from
 [`remotes`](https://github.com/r-lib/remotes) package:
 
 ``` r
+
 remotes::install_github("joeroe/rpaleoclim")
 ```
 
@@ -39,6 +44,7 @@ reads it into R as a
 [SpatRaster](https://rspatial.org/spatial/4-rasterdata.html) object.
 
 ``` r
+
 library("rpaleoclim")
 library("terra") # For plotting
 
