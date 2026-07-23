@@ -26,7 +26,6 @@ BugReports: https://github.com/joeroe/rpaleoclim/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Imports: 
     curl,
     fs,
@@ -42,3 +41,4 @@ Suggests:
     rmarkdown
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.0.0

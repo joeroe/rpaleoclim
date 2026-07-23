@@ -11,9 +11,11 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rpaleoclim)](https://CRAN.R-project.org/package=rpaleoclim)
 [![R-CMD-check](https://github.com/joeroe/rpaleoclim/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/rpaleoclim/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
+[![Test
 coverage](https://codecov.io/gh/joeroe/rpaleoclim/graph/badge.svg)](https://app.codecov.io/gh/joeroe/rpaleoclim)
+
 [![DOI](https://zenodo.org/badge/199434717.svg)](https://zenodo.org/badge/latestdoi/199434717)
+[![](https://cranlogs.r-pkg.org/badges/rpaleoclim)](https://cran.rstudio.com/web/packages/rpaleoclim/index.html)
 <!-- badges: end -->
 
 [PaleoClim](http://www.paleoclim.org) is a set of free, high resolution
@@ -59,7 +61,7 @@ paleoclim("lh", "10m") |>
   plot()
 ```
 
-<img src="man/figures/README-rpaleoclim-demo-1.png" width="100%" />
+<img src="man/figures/README-rpaleoclim-demo-1.png" alt="" width="100%" />
 
 By default, files from PaleoClim are cached in a local temporary
 directory to avoid repeated download of the same data.

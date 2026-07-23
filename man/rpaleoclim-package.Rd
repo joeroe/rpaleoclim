@@ -20,5 +20,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Joe Roe \email{joe@joeroe.io} [copyright holder]
 
+Authors:
+\itemize{
+  \item Joe Roe \email{joe@joeroe.io} [copyright holder]
+}
+
 }
 \keyword{internal}
